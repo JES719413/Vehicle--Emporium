@@ -2,7 +2,7 @@
 
 namespace Vehicle__Emporium.Models
 {
-    public class Cars
+    public class Vehicles
     {
         public int carID { get; set; }
         [Required(ErrorMessage = "Please enter the make of the car.")]
