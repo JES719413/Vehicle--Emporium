@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Vehicle__Emporium.Models
 {
-    public class Motorcycles
+    public class Motorcycles : Vehicles
     {
         public int bikeID { get; set; }
         public int vehicleID { get; set; }
