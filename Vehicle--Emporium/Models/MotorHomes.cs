@@ -24,7 +24,7 @@ namespace Vehicle__Emporium.Models
         [Column(TypeName = "varchar(75)")]
         public string rvClass { get; set; }
         [Required(ErrorMessage = "Please enter the length of the motor home")]
-        [Column(TypeName = "int")]
+        [Column(TypeName = "double")]
         public double length { get; set; }
 
         public MotorHomes() { }

@@ -14,7 +14,7 @@ namespace Vehicle__Emporium.Models
 
         [Required(ErrorMessage = "Please enter your boat's class.")]
         [Column(TypeName = "varchar(75)")]
-        public int boatClass { get; set; }
+        public string boatClass { get; set; }
 
         [Required(ErrorMessage = "Please enter your boat's length.")]
         [Column(TypeName = "int")]
@@ -26,7 +26,7 @@ namespace Vehicle__Emporium.Models
 
         [Required(ErrorMessage = "Please enter the size of the boats fuel tanks in gallons.")]
         [Column(TypeName = "int")]
-        public string boatFuelTanks { get; set; }
+        public int boatFuelTanks { get; set; }
 
         [Required(ErrorMessage = "Please enter the hull material.")]
         [Column(TypeName = "varchar(75)")]
@@ -38,7 +38,7 @@ namespace Vehicle__Emporium.Models
 
         [Required(ErrorMessage = "Please enter the seating capacity of your boat")]
         [Column(TypeName = "int")]
-        public string boatCapcity { get; set; }
+        public int boatCapcity { get; set; }
 
 
     }

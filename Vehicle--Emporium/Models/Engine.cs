@@ -26,5 +26,9 @@ namespace Vehicle__Emporium.Models
         [Column(TypeName = "varchar(75)")]
         public int engineType { get; set; }
 
+        [Required(ErrorMessage = "Please enter the number of hours on the engine.")]
+        [Column(TypeName = "int")]
+        public int engineHour { get; set; }
+
     }
 }
