@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vehicle__Emporium.Models
 {
@@ -23,5 +25,12 @@ namespace Vehicle__Emporium.Models
         public decimal price { get; set; }
 
         public string description { get; set; }
+        
+        [DisplayName("Item Image")]
+        public string ImageUpload { get; set; }
+
+        [NotMapped]
+        [DisplayName("Image")]
+        public IFormFile Image { get; set; }
     }
 }
