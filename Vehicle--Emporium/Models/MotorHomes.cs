@@ -20,8 +20,8 @@ namespace Vehicle__Emporium.Models
         [Column(TypeName = "varchar(75)")]
         public string rvClass { get; set; }
         [Required(ErrorMessage = "Please enter the length of the motor home")]
-        [Column(TypeName = "double")]
-        public double length { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal length { get; set; }
 
         public MotorHomes() { }
 
