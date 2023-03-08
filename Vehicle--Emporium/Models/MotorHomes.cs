@@ -14,9 +14,9 @@ namespace Vehicle__Emporium.Models
         [Required(ErrorMessage = "Please select amount of slide outs.")]
         [Column(TypeName = "int")]
         public int slideOuts { get; set; }
-        [Required(ErrorMessage = "Please enter amount of torque.")]
+        [Required(ErrorMessage = "Please enter amount of people it can sleep.")]
         [Column(TypeName = "int")]
-        public int torque { get; set; }
+        public int sleeps { get; set; }
         [Required(ErrorMessage = "Please select the type of fuel.")]
         [Column(TypeName = "varchar(75)")]
         public string fuelType { get; set; }
