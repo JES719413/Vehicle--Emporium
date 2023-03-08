@@ -6,9 +6,6 @@ namespace Vehicle__Emporium.Models
 {
     public class Cars : Vehicles
     {
-        public int carsId { get; set; }
-
-        public int vehicleID { get; set; }
         [Required(ErrorMessage = "Please enter the car type.")]
         [Column(TypeName = "varchar(75)")]
         public string carType { get; set; }

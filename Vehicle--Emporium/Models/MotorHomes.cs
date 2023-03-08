@@ -7,10 +7,6 @@ namespace Vehicle__Emporium.Models
     public class MotorHomes : Vehicles
 
     {
-
-        public int motorHomeId { get; set; }
-
-        public int vehicleID { get; set; }
         [Required(ErrorMessage = "Please select amount of slide outs.")]
         [Column(TypeName = "int")]
         public int slideOuts { get; set; }

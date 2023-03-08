@@ -6,9 +6,6 @@ namespace Vehicle__Emporium.Models
 {
     public class TravelTrailer : Vehicles
     {
-        public int motorHomeId { get; set; }
-
-        public int vehicleID { get; set; }
         [Required(ErrorMessage = "Please select the RV class.")]
         [Column(TypeName = "varchar(75)")]
         public string rvClass { get; set; }
