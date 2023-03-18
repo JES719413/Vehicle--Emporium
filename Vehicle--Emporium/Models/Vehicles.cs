@@ -26,7 +26,7 @@ namespace Vehicle__Emporium.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal price { get; set; }
         public string description { get; set; }
-        
+
         [DisplayName("Item Image")]
         public string ImageUpload { get; set; }
 
