@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Vehicle__Emporium.Models.TravelTrailer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.rvClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.slideOuts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dryWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicleMake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicleModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.miles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mpg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUpload)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.rvClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.slideOuts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dryWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehicleMake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehicleModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.miles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mpg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUpload)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.vehicleID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.vehicleID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.vehicleID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
