@@ -4,5 +4,15 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the Vehicle Emporium</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+        <label>What would you like to sell or buy today.</label>
+        <select onChange="window.location.href=this.value">
+        <option value="" disabled selected>Vehicle Type</option>
+        <option value="https://localhost:44371/Cars/index">Car</option>
+        <option value="https://localhost:44371/MotorCycles/index">Motorcycle</option>
+        <option value="https://localhost:44371/MotorHomes/index">Motor Home</option>
+        <option value="https://localhost:44371/TravelTrailers/index">Travel Trailer</option>
+        </select><br>
+        
+    
 </div>

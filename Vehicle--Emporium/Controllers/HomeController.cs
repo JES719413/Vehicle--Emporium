@@ -14,7 +14,7 @@ namespace Vehicle__Emporium.Controllers
         }
 
         public IActionResult Index()
-        {
+        {           
             return View();
         }
 
