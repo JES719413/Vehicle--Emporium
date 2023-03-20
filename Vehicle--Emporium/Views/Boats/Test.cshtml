@@ -1,0 +1,29 @@
+﻿@model Vehicle__Emporium.ViewModels.BoatEngineViewModel
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Test</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@foreach (Boats boats in Model.Boats)
+{
+    <td>
+        @Html.DisplayFor(modelItem => boats.boatShape)
+    </td>
+
+}
+
+@foreach (Engine engine in Model.Engine)
+{
+        <td>
+        @Html.DisplayFor(modelItem => engine.engineType)
+        </td>
+
+}
+
+
