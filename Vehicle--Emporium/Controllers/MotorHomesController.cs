@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
 using Vehicle__Emporium.Models;
+using Vehicle__Emporium.ViewModels;
 
 namespace Vehicle__Emporium.Controllers
 {
     public class MotorHomesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public MotorHomesController(ApplicationDbContext context)
+        
+
+        public MotorHomesController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         // GET: MotorHomes
@@ -56,15 +61,58 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("slideOuts,sleeps,fuelType,rvClass,length,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] MotorHomes motorHomes)
+        public async Task<IActionResult> Create(MotorHomeViewModel model, IFormFile photo)
         {
-            if (ModelState.IsValid)
+            if (photo == null || photo.Length == 0)
             {
-                _context.Add(motorHomes);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Content("File Not Selected");
             }
-            return View(motorHomes);
+            var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await photo.CopyToAsync(stream);
+                stream.Close();
+            }
+
+            model.motorHomes.ImageUpload = photo.FileName;
+
+            if (model != null)
+            {
+                var motorHome = new MotorHomes
+                {
+                    slideOuts = model.motorHomes.slideOuts,
+                    sleeps = model.motorHomes.sleeps,
+                    fuelType = model.motorHomes.fuelType,
+                    rvClass = model.motorHomes.rvClass,
+                    length = model.motorHomes.length,
+                    vehicleMake = model.motorHomes.vehicleMake,
+                    vehicleModel = model.motorHomes.vehicleModel,
+                    year = model.motorHomes.year,
+                    miles = model.motorHomes.miles,
+                    mpg = model.motorHomes.mpg,
+                    condition = model.motorHomes.condition,
+                    price = model.motorHomes.price,
+                    description = model.motorHomes.description,
+                    ImageUpload = path,
+                };
+                _context.Add(motorHome);
+                await _context.SaveChangesAsync();
+            }
+            return View();
+
+
+
+
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(motorHomes);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View(motorHomes);
         }
 
         // GET: MotorHomes/Edit/5

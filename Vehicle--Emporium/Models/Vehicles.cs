@@ -30,8 +30,8 @@ namespace Vehicle__Emporium.Models
         [DisplayName("Item Image")]
         public string ImageUpload { get; set; }
 
-        [NotMapped]
-        [DisplayName("Image")]
-        public IFormFile Image { get; set; }
+        //[NotMapped]
+        //[DisplayName("Image")]
+        //public IFormFile Image { get; set; }
     }
 }
