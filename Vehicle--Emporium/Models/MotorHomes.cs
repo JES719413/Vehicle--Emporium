@@ -23,7 +23,7 @@ namespace Vehicle__Emporium.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal length { get; set; }
 
-        public MotorHomes() { }
+   
 
 
     }
