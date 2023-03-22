@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
 using Vehicle__Emporium.Models;
+using Vehicle__Emporium.ViewModels;
 
 namespace Vehicle__Emporium.Controllers
 {
     public class CarsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public CarsController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _env;
+        public CarsController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            this._env = env;
         }
 
         // GET: Cars
@@ -56,15 +58,44 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("carType,fuelCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] Cars cars)
+        public async Task<IActionResult> Create(CarsViewModel model, IFormFile photo)
         {
-            if (ModelState.IsValid)
+            if (photo == null || photo.Length == 0)
             {
+                return Content("File Not Selected");
+            }
+            string rootpath = _env.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+            string extension = Path.GetExtension(photo.FileName);
+            var path = Path.Combine(rootpath + "/Images/", fileName);
+            // var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await photo.CopyToAsync(stream);
+                stream.Close();
+            }
+
+            model.cars.ImageUpload = photo.FileName;
+
+            if (model != null)
+            {
+                var cars = new Cars
+                {
+                    carType = model.cars.carType,
+                    fuelCapcity = model.cars.fuelCapcity,
+                    vehicleMake = model.cars.vehicleMake,
+                    vehicleModel = model.cars.vehicleModel,
+                    year = model.cars.year,
+                    miles = model.cars.miles,
+                    mpg = model.cars.mpg,
+                    condition = model.cars.condition,
+                    description = model.cars.description,
+                    ImageUpload = path,
+                };
                 _context.Add(cars);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            return View(cars);
+            return RedirectToAction("Index");
         }
 
         // GET: Cars/Edit/5

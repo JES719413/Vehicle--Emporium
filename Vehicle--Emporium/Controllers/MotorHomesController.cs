@@ -64,6 +64,7 @@ namespace Vehicle__Emporium.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(MotorHomeViewModel model, IFormFile photo)
         {
+           
             if (photo == null || photo.Length == 0)
             {
                 return Content("File Not Selected");
@@ -102,8 +103,9 @@ namespace Vehicle__Emporium.Controllers
                 };
                 _context.Add(motorHome);
                 await _context.SaveChangesAsync();
+                
             }
-            return View();
+            return RedirectToAction("Index");
 
 
 
