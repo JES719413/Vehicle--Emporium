@@ -1,4 +1,4 @@
-﻿@model Vehicle__Emporium.Models.Cars
+﻿@model Vehicle__Emporium.ViewModels.CarsViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,62 +10,61 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="carType" class="control-label"></label>
-                <input asp-for="carType" class="form-control" />
-                <span asp-validation-for="carType" class="text-danger"></span>
+                <label asp-for="cars.carType" class="control-label"></label>
+                <input asp-for="cars.carType" class="form-control" />
+                <span asp-validation-for="cars.carType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="fuelCapcity" class="control-label"></label>
-                <input asp-for="fuelCapcity" class="form-control" />
-                <span asp-validation-for="fuelCapcity" class="text-danger"></span>
+                <label asp-for="cars.fuelCapcity" class="control-label"></label>
+                <input asp-for="cars.fuelCapcity" class="form-control" />
+                <span asp-validation-for="cars.fuelCapcity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleMake" class="control-label"></label>
-                <input asp-for="vehicleMake" class="form-control" />
-                <span asp-validation-for="vehicleMake" class="text-danger"></span>
+                <label asp-for="cars.vehicleMake" class="control-label"></label>
+                <input asp-for="cars.vehicleMake" class="form-control" />
+                <span asp-validation-for="cars.vehicleMake" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleModel" class="control-label"></label>
-                <input asp-for="vehicleModel" class="form-control" />
-                <span asp-validation-for="vehicleModel" class="text-danger"></span>
+                <label asp-for="cars.vehicleModel" class="control-label"></label>
+                <input asp-for="cars.vehicleModel" class="form-control" />
+                <span asp-validation-for="cars.vehicleModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="year" class="control-label"></label>
-                <input asp-for="year" class="form-control" />
-                <span asp-validation-for="year" class="text-danger"></span>
+                <label asp-for="cars.year" class="control-label"></label>
+                <input asp-for="cars.year" class="form-control" />
+                <span asp-validation-for="cars.year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="miles" class="control-label"></label>
-                <input asp-for="miles" class="form-control" />
-                <span asp-validation-for="miles" class="text-danger"></span>
+                <label asp-for="cars.miles" class="control-label"></label>
+                <input asp-for="cars.miles" class="form-control" />
+                <span asp-validation-for="cars.miles" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="mpg" class="control-label"></label>
-                <input asp-for="mpg" class="form-control" />
-                <span asp-validation-for="mpg" class="text-danger"></span>
+                <label asp-for="cars.mpg" class="control-label"></label>
+                <input asp-for="cars.mpg" class="form-control" />
+                <span asp-validation-for="cars.mpg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="condition" class="control-label"></label>
-                <input asp-for="condition" class="form-control" />
-                <span asp-validation-for="condition" class="text-danger"></span>
+                <label asp-for="cars.condition" class="control-label"></label>
+                <input asp-for="cars.condition" class="form-control" />
+                <span asp-validation-for="cars.condition" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="price" class="control-label"></label>
-                <input asp-for="price" class="form-control" />
-                <span asp-validation-for="price" class="text-danger"></span>
+                <label asp-for="cars.price" class="control-label"></label>
+                <input asp-for="cars.price" class="form-control" />
+                <span asp-validation-for="cars.price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
-                <input asp-for="description" class="form-control" />
-                <span asp-validation-for="description" class="text-danger"></span>
+                <label asp-for="cars.description" class="control-label"></label>
+                <input asp-for="cars.description" class="form-control" />
+                <span asp-validation-for="cars.description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageUpload" class="control-label"></label>
-                <input asp-for="ImageUpload" class="form-control" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                <label asp-for="Photo" class="control-label"></label>
+                <strong>Upload New File</strong> <div id="chooseFile"><input type="file" name="photo" accept="image/*" /></div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
