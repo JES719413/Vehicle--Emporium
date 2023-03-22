@@ -30,19 +30,19 @@ namespace Vehicle__Emporium.Controllers
 
         }
 
-        //public ActionResult Test()
-        //{
-        //    var model = new BoatEngineViewModel
-        //    {
-        //        BoatEngine = _context.BoatEngines.ToList(),
-        //        Engine = _context.Engines.ToList()
+        public ActionResult Test()
+        {
+            var model = new BoatEngineViewModel
+            {
+                BoatEngine = _context.BoatEngines.ToList(),
+                Engine = _context.Engines.ToList()
 
-        //    };
+            };
 
-        //    IQueryable<Boats> query = _context.Boats;
-        //    model.Boats = query.ToList();
-        //    return View(model);
-        //}
+            IQueryable<Boats> query = _context.Boats;
+            model.Boats = query.ToList();
+            return View(model);
+        }
 
 
         // GET: Boats/Details/5
@@ -176,6 +176,11 @@ namespace Vehicle__Emporium.Controllers
         private bool BoatsExists(int id)
         {
           return (_context.Boats?.Any(e => e.vehicleID == id)).GetValueOrDefault();
+        }
+
+        public ActionResult Engine(int ID)
+        {
+            return RedirectToAction("Create", "Engines", ID);
         }
     }
 }

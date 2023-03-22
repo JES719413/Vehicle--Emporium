@@ -1,4 +1,4 @@
-﻿@model Vehicle__Emporium.Models.Motorcycles
+﻿@model Vehicle__Emporium.ViewModels.MotorcyclesViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,82 +10,81 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="bikeType" class="control-label"></label>
-                <input asp-for="bikeType" class="form-control" />
-                <span asp-validation-for="bikeType" class="text-danger"></span>
+                <label asp-for="motorcycles.bikeType" class="control-label"></label>
+                <input asp-for="motorcycles.bikeType" class="form-control" />
+                <span asp-validation-for="motorcycles.bikeType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="bikeEngineType" class="control-label"></label>
-                <input asp-for="bikeEngineType" class="form-control" />
-                <span asp-validation-for="bikeEngineType" class="text-danger"></span>
+                <label asp-for="motorcycles.bikeEngineType" class="control-label"></label>
+                <input asp-for="motorcycles.bikeEngineType" class="form-control" />
+                <span asp-validation-for="motorcycles.bikeEngineType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="rideHeight" class="control-label"></label>
-                <input asp-for="rideHeight" class="form-control" />
-                <span asp-validation-for="rideHeight" class="text-danger"></span>
+                <label asp-for="motorcycles.rideHeight" class="control-label"></label>
+                <input asp-for="motorcycles.rideHeight" class="form-control" />
+                <span asp-validation-for="motorcycles.rideHeight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="chainType" class="control-label"></label>
-                <input asp-for="chainType" class="form-control" />
-                <span asp-validation-for="chainType" class="text-danger"></span>
+                <label asp-for="motorcycles.chainType" class="control-label"></label>
+                <input asp-for="motorcycles.chainType" class="form-control" />
+                <span asp-validation-for="motorcycles.chainType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="chainLength" class="control-label"></label>
-                <input asp-for="chainLength" class="form-control" />
-                <span asp-validation-for="chainLength" class="text-danger"></span>
+                <label asp-for="motorcycles.chainLength" class="control-label"></label>
+                <input asp-for="motorcycles.chainLength" class="form-control" />
+                <span asp-validation-for="motorcycles.chainLength" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="sideCar" class="control-label"></label>
-                <input asp-for="sideCar" class="form-control" />
-                <span asp-validation-for="sideCar" class="text-danger"></span>
+                <label asp-for="motorcycles.sideCar" class="control-label"></label>
+                <input asp-for="motorcycles.sideCar" class="form-control" />
+                <span asp-validation-for="motorcycles.sideCar" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleMake" class="control-label"></label>
-                <input asp-for="vehicleMake" class="form-control" />
-                <span asp-validation-for="vehicleMake" class="text-danger"></span>
+                <label asp-for="motorcycles.vehicleMake" class="control-label"></label>
+                <input asp-for="motorcycles.vehicleMake" class="form-control" />
+                <span asp-validation-for="motorcycles.vehicleMake" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleModel" class="control-label"></label>
-                <input asp-for="vehicleModel" class="form-control" />
-                <span asp-validation-for="vehicleModel" class="text-danger"></span>
+                <label asp-for="motorcycles.vehicleModel" class="control-label"></label>
+                <input asp-for="motorcycles.vehicleModel" class="form-control" />
+                <span asp-validation-for="motorcycles.vehicleModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="year" class="control-label"></label>
-                <input asp-for="year" class="form-control" />
-                <span asp-validation-for="year" class="text-danger"></span>
+                <label asp-for="motorcycles.year" class="control-label"></label>
+                <input asp-for="motorcycles.year" class="form-control" />
+                <span asp-validation-for="motorcycles.year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="miles" class="control-label"></label>
-                <input asp-for="miles" class="form-control" />
-                <span asp-validation-for="miles" class="text-danger"></span>
+                <label asp-for="motorcycles.miles" class="control-label"></label>
+                <input asp-for="motorcycles.miles" class="form-control" />
+                <span asp-validation-for="motorcycles.miles" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="mpg" class="control-label"></label>
-                <input asp-for="mpg" class="form-control" />
-                <span asp-validation-for="mpg" class="text-danger"></span>
+                <label asp-for="motorcycles.mpg" class="control-label"></label>
+                <input asp-for="motorcycles.mpg" class="form-control" />
+                <span asp-validation-for="motorcycles.mpg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="condition" class="control-label"></label>
-                <input asp-for="condition" class="form-control" />
-                <span asp-validation-for="condition" class="text-danger"></span>
+                <label asp-for="motorcycles.condition" class="control-label"></label>
+                <input asp-for="motorcycles.condition" class="form-control" />
+                <span asp-validation-for="motorcycles.condition" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="price" class="control-label"></label>
-                <input asp-for="price" class="form-control" />
-                <span asp-validation-for="price" class="text-danger"></span>
+                <label asp-for="motorcycles.price" class="control-label"></label>
+                <input asp-for="motorcycles.price" class="form-control" />
+                <span asp-validation-for="motorcycles.price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
-                <input asp-for="description" class="form-control" />
-                <span asp-validation-for="description" class="text-danger"></span>
+                <label asp-for="motorcycles.description" class="control-label"></label>
+                <input asp-for="motorcycles.description" class="form-control" />
+                <span asp-validation-for="motorcycles.description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageUpload" class="control-label"></label>
-                <input asp-for="ImageUpload" class="form-control" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                <label asp-for="Photo" class="control-label"></label>
+                <strong>Upload New File</strong> <div id="chooseFile"><input type="file" name="photo" accept="image/*" /></div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

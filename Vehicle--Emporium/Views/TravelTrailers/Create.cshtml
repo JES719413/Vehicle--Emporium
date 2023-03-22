@@ -1,4 +1,4 @@
-﻿@model Vehicle__Emporium.Models.TravelTrailer
+﻿@model Vehicle__Emporium.ViewModels.TravelTrailerViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -11,72 +11,71 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="rvClass" class="control-label"></label>
-                <input asp-for="rvClass" class="form-control" />
-                <span asp-validation-for="rvClass" class="text-danger"></span>
+                <label asp-for="travelTrailer.rvClass" class="control-label"></label>
+                <input asp-for="travelTrailer.rvClass" class="form-control" />
+                <span asp-validation-for="travelTrailer.rvClass" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="length" class="control-label"></label>
-                <input asp-for="length" class="form-control" />
-                <span asp-validation-for="length" class="text-danger"></span>
+                <label asp-for="travelTrailer.length" class="control-label"></label>
+                <input asp-for="travelTrailer.length" class="form-control" />
+                <span asp-validation-for="travelTrailer.length" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="slideOuts" class="control-label"></label>
-                <input asp-for="slideOuts" class="form-control" />
-                <span asp-validation-for="slideOuts" class="text-danger"></span>
+                <label asp-for="travelTrailer.slideOuts" class="control-label"></label>
+                <input asp-for="travelTrailer.slideOuts" class="form-control" />
+                <span asp-validation-for="travelTrailer.slideOuts" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="dryWeight" class="control-label"></label>
-                <input asp-for="dryWeight" class="form-control" />
-                <span asp-validation-for="dryWeight" class="text-danger"></span>
+                <label asp-for="travelTrailer.dryWeight" class="control-label"></label>
+                <input asp-for="travelTrailer.dryWeight" class="form-control" />
+                <span asp-validation-for="travelTrailer.dryWeight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleMake" class="control-label"></label>
-                <input asp-for="vehicleMake" class="form-control" />
-                <span asp-validation-for="vehicleMake" class="text-danger"></span>
+                <label asp-for="travelTrailer.vehicleMake" class="control-label"></label>
+                <input asp-for="travelTrailer.vehicleMake" class="form-control" />
+                <span asp-validation-for="travelTrailer.vehicleMake" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleModel" class="control-label"></label>
-                <input asp-for="vehicleModel" class="form-control" />
-                <span asp-validation-for="vehicleModel" class="text-danger"></span>
+                <label asp-for="travelTrailer.vehicleModel" class="control-label"></label>
+                <input asp-for="travelTrailer.vehicleModel" class="form-control" />
+                <span asp-validation-for="travelTrailer.vehicleModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="year" class="control-label"></label>
-                <input asp-for="year" class="form-control" />
-                <span asp-validation-for="year" class="text-danger"></span>
+                <label asp-for="travelTrailer.year" class="control-label"></label>
+                <input asp-for="travelTrailer.year" class="form-control" />
+                <span asp-validation-for="travelTrailer.year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="miles" class="control-label"></label>
-                <input asp-for="miles" class="form-control" />
-                <span asp-validation-for="miles" class="text-danger"></span>
+                <label asp-for="travelTrailer.miles" class="control-label"></label>
+                <input asp-for="travelTrailer.miles" class="form-control" />
+                <span asp-validation-for="travelTrailer.miles" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="mpg" class="control-label"></label>
-                <input asp-for="mpg" class="form-control" />
-                <span asp-validation-for="mpg" class="text-danger"></span>
+                <label asp-for="travelTrailer.mpg" class="control-label"></label>
+                <input asp-for="travelTrailer.mpg" class="form-control" />
+                <span asp-validation-for="travelTrailer.mpg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="condition" class="control-label"></label>
-                <input asp-for="condition" class="form-control" />
-                <span asp-validation-for="condition" class="text-danger"></span>
+                <label asp-for="travelTrailer.condition" class="control-label"></label>
+                <input asp-for="travelTrailer.condition" class="form-control" />
+                <span asp-validation-for="travelTrailer.condition" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="price" class="control-label"></label>
-                <input asp-for="price" class="form-control" />
-                <span asp-validation-for="price" class="text-danger"></span>
+                <label asp-for="travelTrailer.price" class="control-label"></label>
+                <input asp-for="travelTrailer.price" class="form-control" />
+                <span asp-validation-for="travelTrailer.price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
-                <input asp-for="description" class="form-control" />
-                <span asp-validation-for="description" class="text-danger"></span>
+                <label asp-for="travelTrailer.description" class="control-label"></label>
+                <input asp-for="travelTrailer.description" class="form-control" />
+                <span asp-validation-for="travelTrailer.description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageUpload" class="control-label"></label>
-                <input asp-for="ImageUpload" class="form-control" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                <label asp-for="Photo" class="control-label"></label>
+                <strong>Upload New File</strong> <div id="chooseFile"><input type="file" name="photo" accept="image/*" /></div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
