@@ -88,6 +88,7 @@ namespace Vehicle__Emporium.Controllers
         // GET: Boats/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.Test = id;
             if (id == null || _context.Boats == null)
             {
                 return NotFound();
@@ -180,7 +181,7 @@ namespace Vehicle__Emporium.Controllers
 
         public ActionResult Engine(int ID)
         {
-            return RedirectToAction("Create", "Engines", ID);
+            return RedirectToAction("Create", "Engines", new { ID = ID });
         }
     }
 }
