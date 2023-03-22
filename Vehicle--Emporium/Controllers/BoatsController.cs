@@ -30,19 +30,19 @@ namespace Vehicle__Emporium.Controllers
 
         }
 
-        //public ActionResult Test()
-        //{
-        //    var model = new BoatEngineViewModel
-        //    {
-        //        BoatEngine = _context.BoatEngines.ToList(),
-        //        Engine = _context.Engines.ToList()
+        public ActionResult Test()
+        {
+            var model = new BoatEngineViewModel
+            {
+                BoatEngine = _context.BoatEngines.ToList(),
+                Engine = _context.Engines.ToList()
 
-        //    };
+            };
 
-        //    IQueryable<Boats> query = _context.Boats;
-        //    model.Boats = query.ToList();
-        //    return View(model);
-        //}
+            IQueryable<Boats> query = _context.Boats;
+            model.Boats = query.ToList();
+            return View(model);
+        }
 
 
         // GET: Boats/Details/5

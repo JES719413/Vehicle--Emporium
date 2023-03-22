@@ -13,55 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.boatType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatClass)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatLength)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatFuel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatFuelTanks)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatMaterial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatShape)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.boatCapcity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vehicleMake)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vehicleModel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.miles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mpg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.condition)
+                @Html.DisplayNameFor(model => model.ImageUpload)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.description)
+                    @Html.DisplayNameFor(model => model.vehicleMake)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUpload)
+                    @Html.DisplayNameFor(model => model.vehicleModel)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.year)
             </th>
             <th></th>
         </tr>
@@ -70,56 +34,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.boatType)
+               @Html.DisplayFor(modelItem => item.ImageUpload)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.boatClass)
+               @Html.DisplayFor(modelItem => item.price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.boatLength)
+               @Html.DisplayFor(modelItem => item.vehicleMake)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.boatFuel)
+              @Html.DisplayFor(modelItem => item.vehicleModel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.boatFuelTanks)
+              @Html.DisplayFor(modelItem => item.year)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.boatMaterial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.boatShape)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.boatCapcity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vehicleMake)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vehicleModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.miles)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mpg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.condition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUpload)
-            </td>
+           
             <td>
                 <a asp-action="Edit" asp-route-id="@item.vehicleID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.vehicleID">Details</a> |
