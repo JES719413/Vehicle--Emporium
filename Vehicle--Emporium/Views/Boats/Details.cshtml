@@ -1,15 +1,22 @@
 ﻿@model Vehicle__Emporium.Models.Boats
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details for " + @Model.vehicleModel;
 }
 
-<h1>Details</h1>
+<h1>Details for @Model.vehicleModel  @Model.vehicleMake</h1>
 
 <div>
-    <h4>Boats</h4>
+    <h4>@Model.vehicleModel  @Model.vehicleMake</h4>
+    @Html.DisplayFor(model => model.ImageUpload)
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.boatType)
         </dt>
@@ -99,18 +106,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUpload)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUpload)
         </dd>
     </dl>
 </div>
