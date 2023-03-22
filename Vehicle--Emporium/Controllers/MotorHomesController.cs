@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,7 @@ namespace Vehicle__Emporium.Controllers
         public MotorHomesController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
-            _env = env;
+            this._env = env;
         }
 
         // GET: MotorHomes
@@ -67,7 +68,11 @@ namespace Vehicle__Emporium.Controllers
             {
                 return Content("File Not Selected");
             }
-            var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
+            string rootpath = _env.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+            string extension = Path.GetExtension(photo.FileName);
+            var path = Path.Combine(rootpath + "/Images/", fileName);
+           // var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
                 await photo.CopyToAsync(stream);
