@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Vehicle__Emporium.Models;
 
@@ -20,6 +21,10 @@ namespace Vehicle__Emporium.Controllers
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+        [Authorize(Roles = "ADMIN")]
+        public IActionResult IsAdmin() {
             return View();
         }
 
