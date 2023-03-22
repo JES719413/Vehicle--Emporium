@@ -105,9 +105,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.description)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUpload)
-            </td>
+                <td>
+                    <img src="@("~/Images/" + item.ImageUpload)" asp-append-version="true" width="150" height="150" />
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.vehicleID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.vehicleID">Details</a> |

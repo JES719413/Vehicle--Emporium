@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
 using Vehicle__Emporium.Models;
+using Vehicle__Emporium.ViewModels;
 
 namespace Vehicle__Emporium.Controllers
 {
     public class TravelTrailersController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public TravelTrailersController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _env;
+        public TravelTrailersController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            this._env = env;
         }
 
         // GET: TravelTrailers
@@ -56,15 +58,51 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("rvClass,length,slideOuts,dryWeight,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] TravelTrailer travelTrailer)
+        public async Task<IActionResult> Create(TravelTrailerViewModel model, IFormFile photo)
         {
-            if (ModelState.IsValid)
+            if (photo == null || photo.Length == 0)
             {
+                return Content("File Not Selected");
+            }
+            string rootpath = _env.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+            string extension = Path.GetExtension(photo.FileName);
+            var path = Path.Combine(rootpath + "/Images/", fileName);
+            // var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await photo.CopyToAsync(stream);
+                stream.Close();
+            }
+
+            model.travelTrailer.ImageUpload = photo.FileName;
+
+
+
+            if (model != null)
+            {
+                var travelTrailer = new TravelTrailer
+                {
+                    rvClass = model.travelTrailer.rvClass,
+                    length = model.travelTrailer.length,
+                    slideOuts = model.travelTrailer.slideOuts,
+                    dryWeight = model.travelTrailer.dryWeight,
+                    vehicleMake = model.travelTrailer.vehicleMake,
+                    vehicleModel = model.travelTrailer.vehicleModel,
+                    year = model.travelTrailer.year,
+                    miles = model.travelTrailer.miles,
+                    mpg = model.travelTrailer.mpg,
+                    condition = model.travelTrailer.condition,
+                    price = model.travelTrailer.price,
+                    description = model.travelTrailer.description,
+                    ImageUpload = path,
+                };
+
                 _context.Add(travelTrailer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
             }
-            return View(travelTrailer);
+            return RedirectToAction("Index");
         }
 
         // GET: TravelTrailers/Edit/5

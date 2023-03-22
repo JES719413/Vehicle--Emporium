@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
 using Vehicle__Emporium.Models;
+using Vehicle__Emporium.ViewModels;
 
 namespace Vehicle__Emporium.Controllers
 {
     public class MotorcyclesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public MotorcyclesController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _env;
+        public MotorcyclesController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            this._env = env;
         }
 
         // GET: Motorcycles
@@ -56,15 +58,50 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("bikeType,bikeEngineType,rideHeight,chainType,chainLength,sideCar,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] Motorcycles motorcycles)
+        public async Task<IActionResult> Create(MotorcyclesViewModel model, IFormFile photo)
         {
-            if (ModelState.IsValid)
+            if (photo == null || photo.Length == 0)
             {
-                _context.Add(motorcycles);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Content("File Not Selected");
             }
-            return View(motorcycles);
+            string rootpath = _env.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+            string extension = Path.GetExtension(photo.FileName);
+            var path = Path.Combine(rootpath + "/Images/", fileName);
+            // var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await photo.CopyToAsync(stream);
+                stream.Close();
+            }
+
+            model.motorcycles.ImageUpload = photo.FileName;
+
+            if (model != null)
+            {
+                var motorcycle = new Motorcycles
+                {
+                    bikeType = model.motorcycles.bikeType,
+                    bikeEngineType = model.motorcycles.bikeEngineType,
+                    rideHeight = model.motorcycles.rideHeight,
+                    chainType = model.motorcycles.chainType,
+                    chainLength = model.motorcycles.chainLength,
+                    sideCar = model.motorcycles.sideCar,
+                    vehicleMake = model.motorcycles.vehicleMake,
+                    vehicleModel = model.motorcycles.vehicleModel,
+                    year = model.motorcycles.year,
+                    miles = model.motorcycles.miles,
+                    mpg = model.motorcycles.mpg,
+                    condition = model.motorcycles.condition,
+                    price = model.motorcycles.price,
+                    description = model.motorcycles.description,
+                    ImageUpload = path,
+                };
+                _context.Add(motorcycle);
+                await _context.SaveChangesAsync();
+                
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: Motorcycles/Edit/5
