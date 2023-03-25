@@ -1,0 +1,75 @@
+﻿@model Vehicle__Emporium.Models.BoatEngine
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BoatEngine</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.engineDriveType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.engineDriveType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.propellerType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.propellerType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.propellerMaterial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.propellerMaterial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vehicleID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vehicleID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.engineMake)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.engineMake)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.engineModel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.engineModel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.enginePower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.enginePower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.engineType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.engineType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.engineHour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.engineHour)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="engineID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

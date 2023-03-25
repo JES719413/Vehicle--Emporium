@@ -196,5 +196,10 @@ namespace Vehicle__Emporium.Controllers
         {
           return (_context.Motorcycles?.Any(e => e.vehicleID == id)).GetValueOrDefault();
         }
+
+        public ActionResult Engine(int ID)
+        {
+            return RedirectToAction("Create", "Engines", new { ID = ID });
+        }
     }
 }

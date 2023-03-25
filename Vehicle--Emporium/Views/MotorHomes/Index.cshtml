@@ -103,9 +103,10 @@
             <td>
                <img src="@("~/Images/" + item.ImageUpload)" asp-append-version="true" width="150" height="150"/>
             </td>
-            <td>
+               <td>
                 <a asp-action="Edit" asp-route-id="@item.vehicleID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.vehicleID">Details</a> |
+                <a asp-action="Engine" asp-route-id="@item.vehicleID">Add Engine</a> |
                 <a asp-action="Delete" asp-route-id="@item.vehicleID">Delete</a>
             </td>
         </tr>
