@@ -16,3 +16,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.c-item {
+    height: 450px;
+}
+
+.c-img {
+    height: 520px;
+    object-fit: cover;
+    filter: brightness(0.6);
+
+}
