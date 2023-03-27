@@ -10,39 +10,39 @@ namespace Vehicle__Emporium.Models
         public int vehicleID { get; set; }
         [Required(ErrorMessage = "Please enter the make of the Vehicle.")]
 
-        [Display(Name = "Make")]
+        [Display(Name = "Make: ")]
         public string vehicleMake { get; set; }
         [Required(ErrorMessage = "Please enter the Vehicle model")]
 
-        [Display(Name = "Model")]
+        [Display(Name = "Model: ")]
         public string vehicleModel { get; set; }
         [Required(ErrorMessage = "Please enter the year of the Vehicle.")]
 
-        [Display(Name = "Year")]
+        [Display(Name = "Year: ")]
         public int year { get; set; }
         [Required(ErrorMessage = "Please enter how many miles the Vehicle has.")]
         [Range(0, 500000, ErrorMessage = "Miles can not exceed over 500,000.")]
 
-        [Display(Name = "Miles")]
+        [Display(Name = "Miles: ")]
         public int miles { get; set; }
 
         [Required(ErrorMessage = "Please enter the miles per gallon.")]
-        [Display(Name = "MPG")]
+        [Display(Name = "MPG: ")]
         public int mpg { get; set; }
 
-        [Display(Name = "Condition")]
+        [Display(Name = "Condition: ")]
         [Required(ErrorMessage = "Please enter the condition of the Vehicle.")]
         public string condition { get; set; }
 
-        [Display(Name = "Price")]
+        [Display(Name = "Price: ")]
         [Required(ErrorMessage = "Please enter a price.")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal price { get; set; }
 
-        [Display(Name = "Description")]
+        [Display(Name = "Description: ")]
         public string description { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Image: ")]
         [DisplayName("Item Image")]
         public string ImageUpload { get; set; }
 
