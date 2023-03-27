@@ -1,4 +1,4 @@
-﻿@model Vehicle__Emporium.Models.Boats
+﻿@model Vehicle__Emporium.ViewModels.BoatsViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,92 +10,91 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="boatType" class="control-label"></label>
-                <input asp-for="boatType" class="form-control" />
-                <span asp-validation-for="boatType" class="text-danger"></span>
+                <label asp-for="boats.boatType" class="control-label"></label>
+                <input asp-for="boats.boatType" class="form-control" />
+                <span asp-validation-for="boats.boatType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatClass" class="control-label"></label>
-                <input asp-for="boatClass" class="form-control" />
-                <span asp-validation-for="boatClass" class="text-danger"></span>
+                <label asp-for="boats.boatClass" class="control-label"></label>
+                <input asp-for="boats.boatClass" class="form-control" />
+                <span asp-validation-for="boats.boatClass" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatLength" class="control-label"></label>
-                <input asp-for="boatLength" class="form-control" />
-                <span asp-validation-for="boatLength" class="text-danger"></span>
+                <label asp-for="boats.boatLength" class="control-label"></label>
+                <input asp-for="boats.boatLength" class="form-control" />
+                <span asp-validation-for="boats.boatLength" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatFuel" class="control-label"></label>
-                <input asp-for="boatFuel" class="form-control" />
-                <span asp-validation-for="boatFuel" class="text-danger"></span>
+                <label asp-for="boats.boatFuel" class="control-label"></label>
+                <input asp-for="boats.boatFuel" class="form-control" />
+                <span asp-validation-for="boats.boatFuel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatFuelTanks" class="control-label"></label>
-                <input asp-for="boatFuelTanks" class="form-control" />
-                <span asp-validation-for="boatFuelTanks" class="text-danger"></span>
+                <label asp-for="boats.boatFuelTanks" class="control-label"></label>
+                <input asp-for="boats.boatFuelTanks" class="form-control" />
+                <span asp-validation-for="boats.boatFuelTanks" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatMaterial" class="control-label"></label>
-                <input asp-for="boatMaterial" class="form-control" />
-                <span asp-validation-for="boatMaterial" class="text-danger"></span>
+                <label asp-for="boats.boatMaterial" class="control-label"></label>
+                <input asp-for="boats.boatMaterial" class="form-control" />
+                <span asp-validation-for="boats.boatMaterial" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatShape" class="control-label"></label>
-                <input asp-for="boatShape" class="form-control" />
-                <span asp-validation-for="boatShape" class="text-danger"></span>
+                <label asp-for="boats.boatShape" class="control-label"></label>
+                <input asp-for="boats.boatShape" class="form-control" />
+                <span asp-validation-for="boats.boatShape" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="boatCapcity" class="control-label"></label>
-                <input asp-for="boatCapcity" class="form-control" />
-                <span asp-validation-for="boatCapcity" class="text-danger"></span>
+                <label asp-for="boats.boatCapcity" class="control-label"></label>
+                <input asp-for="boats.boatCapcity" class="form-control" />
+                <span asp-validation-for="boats.boatCapcity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleMake" class="control-label"></label>
-                <input asp-for="vehicleMake" class="form-control" />
-                <span asp-validation-for="vehicleMake" class="text-danger"></span>
+                <label asp-for="boats.vehicleMake" class="control-label"></label>
+                <input asp-for="boats.vehicleMake" class="form-control" />
+                <span asp-validation-for="boats.vehicleMake" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehicleModel" class="control-label"></label>
-                <input asp-for="vehicleModel" class="form-control" />
-                <span asp-validation-for="vehicleModel" class="text-danger"></span>
+                <label asp-for="boats.vehicleModel" class="control-label"></label>
+                <input asp-for="boats.vehicleModel" class="form-control" />
+                <span asp-validation-for="boats.vehicleModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="year" class="control-label"></label>
-                <input asp-for="year" class="form-control" />
-                <span asp-validation-for="year" class="text-danger"></span>
+                <label asp-for="boats.year" class="control-label"></label>
+                <input asp-for="boats.year" class="form-control" />
+                <span asp-validation-for="boats.year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="miles" class="control-label"></label>
-                <input asp-for="miles" class="form-control" />
-                <span asp-validation-for="miles" class="text-danger"></span>
+                <label asp-for="boats.miles" class="control-label"></label>
+                <input asp-for="boats.miles" class="form-control" />
+                <span asp-validation-for="boats.miles" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="mpg" class="control-label"></label>
-                <input asp-for="mpg" class="form-control" />
-                <span asp-validation-for="mpg" class="text-danger"></span>
+                <label asp-for="boats.mpg" class="control-label"></label>
+                <input asp-for="boats.mpg" class="form-control" />
+                <span asp-validation-for="boats.mpg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="condition" class="control-label"></label>
-                <input asp-for="condition" class="form-control" />
-                <span asp-validation-for="condition" class="text-danger"></span>
+                <label asp-for="boats.condition" class="control-label"></label>
+                <input asp-for="boats.condition" class="form-control" />
+                <span asp-validation-for="boats.condition" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="price" class="control-label"></label>
-                <input asp-for="price" class="form-control" />
-                <span asp-validation-for="price" class="text-danger"></span>
+                <label asp-for="boats.price" class="control-label"></label>
+                <input asp-for="boats.price" class="form-control" />
+                <span asp-validation-for="boats.price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
-                <input asp-for="description" class="form-control" />
-                <span asp-validation-for="description" class="text-danger"></span>
+                <label asp-for="boats.description" class="control-label"></label>
+                <input asp-for="boats.description" class="form-control" />
+                <span asp-validation-for="boats.description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageUpload" class="control-label"></label>
-                <input asp-for="ImageUpload" class="form-control" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                <label asp-for="Photo" class="control-label"></label>
+                <strong>Upload New File</strong> <div id="chooseFile"><input type="file" name="photo" accept="image/*" /></div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

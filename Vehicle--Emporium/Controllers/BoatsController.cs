@@ -14,10 +14,12 @@ namespace Vehicle__Emporium.Controllers
     public class BoatsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public BoatsController(ApplicationDbContext context)
+        public BoatsController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            this._env = env;
         }
 
         // GET: Boats
@@ -74,15 +76,50 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("boatType,boatClass,boatLength,boatFuel,boatFuelTanks,boatMaterial,boatShape,boatCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] Boats boats)
+        public async Task<IActionResult> Create(BoatsViewModel model, IFormFile photo)
         {
-            if (ModelState.IsValid)
+            if (photo == null || photo.Length == 0)
             {
-                _context.Add(boats);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Content("File Not Selected");
             }
-            return View(boats);
+            string rootpath = _env.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+            string extension = Path.GetExtension(photo.FileName);
+            var path = Path.Combine(rootpath + "/Images/", fileName);
+            // var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await photo.CopyToAsync(stream);
+                stream.Close();
+            }
+
+            model.boats.ImageUpload = photo.FileName;
+           if (model != null)
+            {
+                var boat = new Boats
+                {
+                    boatType = model.boats.boatType,
+                    boatClass = model.boats.boatClass,
+                    boatLength = model.boats.boatLength,
+                    boatFuel = model.boats.boatFuel,
+                    boatFuelTanks = model.boats.boatFuelTanks,
+                    boatMaterial = model.boats.boatMaterial,
+                    boatShape = model.boats.boatShape,
+                    boatCapcity = model.boats.boatCapcity,
+                    vehicleMake = model.boats.vehicleMake,
+                    vehicleModel = model.boats.vehicleModel,
+                    year = model.boats.year,
+                    miles = model.boats.miles,
+                    mpg = model.boats.mpg,
+                    condition = model.boats.condition,
+                    price = model.boats.price,
+                    description = model.boats.description,
+                    ImageUpload = path
+                };
+                _context.Add(boat);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: Boats/Edit/5
