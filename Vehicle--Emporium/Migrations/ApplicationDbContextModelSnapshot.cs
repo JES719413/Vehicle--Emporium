@@ -293,7 +293,7 @@ namespace Vehicle__Emporium.Migrations
 
                     b.HasKey("engineID");
 
-                    b.ToTable("Engines");
+                    b.ToTable("Engines", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Engine");
                 });
@@ -344,7 +344,7 @@ namespace Vehicle__Emporium.Migrations
 
                     b.HasKey("vehicleID");
 
-                    b.ToTable("Vehicles");
+                    b.ToTable("Vehicles", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Vehicles");
                 });

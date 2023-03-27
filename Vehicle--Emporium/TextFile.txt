@@ -6,10 +6,137 @@ https://freefrontend.com/bootstrap-grid-examples/
 
 
 
+So View Models 
+First make a folder in your models called view models 
+Then create a new Class called somethign something view models 
+you want it to look like this 
+
+namespace DocketMaster.Models.ViewModels
+{
+    public class TicketVM
+    {
+        public int supportID { get; set; }
+        public string empName { get; set; }
+        public string clientName { get; set; }
+
+        public string ticketTitle { get; set; }
+        public string ticketDescription { get; set; }
+
+    }
+}
+
+where you what all the values you want to use in the model declared here 
+
+next go to the controller where you will be using this view model 
+make sure to use 
+using namespace.models.viewmodels at the top replacing namespace with whatever you need there
 
 
+Now here is how I display two models when the view is called on the index page 
+
+ public IActionResult Index()
+        { List<TicketVM> ticketVMs= new List<TicketVM>();
+
+            var ticTest = (from T1 in _context.SupportTickets
+                           join T2 in _context.Clients on T1.clientID equals T2.ClientID
+                           join T3 in _context.Employees on T1.empemployeeId equals T3.employeeId
+                           select new TicketVM
+                           {
+                               empName = T3.empName,
+                               clientName = T2.clientName,
+                               ticketTitle = T1.ticketTitle,
+                               ticketDescription = T1.ticketDesc,
+                               supportID = T1.supportID
+                           }
+                           );
+
+            ticketVMs = ticTest.ToList();
+            return View(ticketVMs);
+        }
+
+In the view I use the following for the @model 
+@model IEnumerable<DocketMaster.Models.ViewModels.TicketVM>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
 
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee name
+            </th>
+            <th>
+               Client Name
+            </th>
+            <th>
+                Ticket Title
+            </th>
+            <th>
+                Ticket Desc
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ticketTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ticketDescription)
+                </td>
+                <td>
+                    <a asp-action="TicketEdit" asp-route-id="@item.supportID">Edit</a> |
+                    <a asp-action="TicketDetails" asp-route-id="@item.supportID">Details</a> |
+                    <a asp-action="TicketDelete" asp-route-id="@item.supportID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Client Naame
+            </th>
+            <th>
+               Client Address
+            </th>
+            <th>
+                Client Email
+            </th>
+            <th>
+                Client Phone
+            </th>
+            <th>
+                Client Website
+            </th>
+            <th>
+                Client Sales Rep
+            </th>
+            <th>
+                Client Time Zone
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-
+</table>
