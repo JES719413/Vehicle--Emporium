@@ -85,7 +85,7 @@ namespace Vehicle__Emporium.Controllers
             string rootpath = _env.WebRootPath;
             string fileName = Path.GetFileNameWithoutExtension(photo.FileName);
             string extension = Path.GetExtension(photo.FileName);
-            var path = Path.Combine(rootpath + "/Images/", fileName);
+            var path = Path.Combine(rootpath + "/Images/", fileName + ".jpeg");
             // var path = Path.Combine(_env.WebRootPath, "ImageName/Cover", photo.FileName);
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
@@ -114,7 +114,7 @@ namespace Vehicle__Emporium.Controllers
                     condition = model.boats.condition,
                     price = model.boats.price,
                     description = model.boats.description,
-                    ImageUpload = path
+                    ImageUpload = fileName
                 };
                 _context.Add(boat);
                 await _context.SaveChangesAsync();
