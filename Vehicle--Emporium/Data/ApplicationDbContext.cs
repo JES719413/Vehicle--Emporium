@@ -25,26 +25,30 @@ namespace Vehicle__Emporium.Data
             
         }
 
+
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            Guid gr = Guid.NewGuid();
 
             builder.Entity<IdentityRole>().HasData(new IdentityRole {
-                Id = "7c4a78c7-e1e5-4bb5-8e8c-7100132f1297", Name = "ADMIN", NormalizedName = "ADMIN".ToUpper() });
+                Id = gr.ToString(), Name = "ADMIN", NormalizedName = "ADMIN".ToUpper() });
 
             var hasher = new PasswordHasher<IdentityUser>();
+            Guid g = Guid.NewGuid();
 
             builder.Entity<IdentityUser>().HasData(
 
                 new IdentityUser
                 {
-                    Id = "7c4a78c7-e1e5-4bb5-8e8c-7100132f1214",
-                    UserName = "Admin",
-                    NormalizedUserName = "Admin",
+                    Id = g.ToString(),
+                    UserName = "Admin@test.com",
+                    NormalizedUserName = "Admin@test.com",
                     Email = "Admin@test.com",
                     NormalizedEmail = "Admin@test.com",
                     EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "AdminPassword1!")
+                    PasswordHash = hasher.HashPassword(null, "Admin1$")
 
                 }
             ); 
@@ -52,8 +56,8 @@ namespace Vehicle__Emporium.Data
             builder.Entity<IdentityUserRole<String>>().HasData(
                     new IdentityUserRole<string>
                     {
-                        RoleId = "7c4a78c7-e1e5-4bb5-8e8c-7100132f1297",
-                        UserId = "7c4a78c7-e1e5-4bb5-8e8c-7100132f1214"
+                        RoleId = gr.ToString(),
+                        UserId = g.ToString()
                     }
                 );
         }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vehicle__Emporium.Data;
 
@@ -11,9 +12,10 @@ using Vehicle__Emporium.Data;
 namespace Vehicle__Emporium.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230329194953_SeedAdmin2")]
+    partial class SeedAdmin2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,8 +53,8 @@ namespace Vehicle__Emporium.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aca3ded3-22bd-4d5f-aaba-dbf269b90ef7",
-                            ConcurrencyStamp = "766edcc2-c01f-4229-a6c7-8f4517f448f3",
+                            Id = "c4258c18-677d-4595-8309-7e5990b51414",
+                            ConcurrencyStamp = "9854d132-9dd4-497f-90fb-e0fdb703bc7e",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         });
@@ -150,19 +152,19 @@ namespace Vehicle__Emporium.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1526973c-74dc-4564-aaa4-21988ee56edc",
+                            Id = "4cfdbe13-098f-4750-9d01-6d6bffa26d50",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7423777f-13d2-450c-aaee-66b82508496a",
+                            ConcurrencyStamp = "8df95c56-19c3-40fb-85f6-114b89a925a1",
                             Email = "Admin@test.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "Admin@test.com",
                             NormalizedUserName = "Admin@test.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAENaajZNtdpVtI/4JAqZ6MHxbGCiqw2HsG4LT2NPve5d9lvyVqZUjUjnE4J1I/1rSmA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDOSflGLsgGsTMKt62gAqiOaud7JyZqywFPc3Tqz1w7KG9Df3SZdfAWdiBJKadXFKw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3366a7ee-24d6-4eaf-805c-903295c213cd",
+                            SecurityStamp = "1d1af271-9ad2-4ddf-9fd3-f82def344c4c",
                             TwoFactorEnabled = false,
-                            UserName = "Admin@test.com"
+                            UserName = "Admin"
                         });
                 });
 
@@ -232,8 +234,8 @@ namespace Vehicle__Emporium.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1526973c-74dc-4564-aaa4-21988ee56edc",
-                            RoleId = "aca3ded3-22bd-4d5f-aaba-dbf269b90ef7"
+                            UserId = "4cfdbe13-098f-4750-9d01-6d6bffa26d50",
+                            RoleId = "c4258c18-677d-4595-8309-7e5990b51414"
                         });
                 });
 
