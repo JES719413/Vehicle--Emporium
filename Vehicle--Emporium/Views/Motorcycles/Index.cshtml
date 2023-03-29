@@ -9,112 +9,31 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.bikeType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bikeEngineType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.rideHeight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.chainType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.chainLength)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.sideCar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vehicleMake)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vehicleModel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.miles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mpg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.condition)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUpload)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.bikeType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bikeEngineType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rideHeight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.chainType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.chainLength)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sideCar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vehicleMake)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vehicleModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.miles)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mpg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.condition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-                <td>
-                    <img src="@("~/Images/" + item.ImageUpload)" asp-append-version="true" width="150" height="150" />
-                </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.vehicleID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.vehicleID">Details</a> |
-                <a asp-action="Engine" asp-route-id="@item.vehicleID">Add Engine</a> |
-                <a asp-action="Delete" asp-route-id="@item.vehicleID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-70">
+                <img class="col" src="@("~/Images/" + item.ImageUpload +".jpeg")" asp-append-version="true" width="415" height="400" />
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.year)
+                        @Html.DisplayFor(modelItem => item.vehicleMake)
+                        @Html.DisplayFor(modelItem => item.vehicleModel)
+                    </h4>
+                    <p class="card-text">
+                        Price: @Html.DisplayFor(modelItem => item.price)<br>
+                        <a asp-action="Edit" asp-route-id="@item.vehicleID">Edit</a><br>
+                        <a asp-action="Details" asp-route-id="@item.vehicleID">Details</a><br>
+                        <a asp-action="BoatEngine" asp-route-id="@item.vehicleID">Add Engine</a><br>
+                        <a asp-action="Delete" asp-route-id="@item.vehicleID">Delete</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

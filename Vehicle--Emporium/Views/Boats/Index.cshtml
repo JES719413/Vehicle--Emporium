@@ -18,8 +18,10 @@
         
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-70">
-                    <img class="col" src="@("~/Images/" + item.ImageUpload)" asp-append-version="true" width="415" height="400"/>
-                    <div class="card-body">
+                    <a asp-action="Details" asp-route-id="@item.vehicleID">
+                    <img class="col" src="@("~/Images/" + item.ImageUpload +".jpeg")" asp-append-version="true" width="415" height="400"/>
+                    </a>
+                <div class="card-body">
                         <h4 class="card-title">
                             @Html.DisplayFor(modelItem => item.year)
                             @Html.DisplayFor(modelItem => item.vehicleMake)

@@ -6,92 +6,58 @@
 }
 
 <h1>Details</h1>
+<div class="container">
+    <h1 class="my-4">
+        @Model.year @Model.vehicleModel  @Model.vehicleMake
+        <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+        <small>@Model.price</small>
+    </h1>
+    <div class="row">
+        <div class="col-md-8">
+            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="750" height="500" />
+        </div>
 
-<div>
-    <h4>TravelTrailer</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.rvClass)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.rvClass)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.length)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.length)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.slideOuts)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.slideOuts)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dryWeight)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dryWeight)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vehicleMake)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vehicleMake)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vehicleModel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vehicleModel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.year)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.year)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.miles)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.miles)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mpg)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mpg)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.condition)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.condition)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUpload)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUpload)
-        </dd>
-    </dl>
+        <div class="col-md-4">
+            <b>@Html.DisplayNameFor(model => model.description)</b>
+            @Html.DisplayFor(model => model.description)<br />
+            <b>@Html.DisplayNameFor(model => model.rvClass)</b>
+            @Html.DisplayFor(model => model.rvClass)<br />
+            <b>@Html.DisplayNameFor(model => model.length)</b>
+            @Html.DisplayFor(model => model.length)<br />
+            <b>@Html.DisplayNameFor(model => model.slideOuts)</b>
+            @Html.DisplayFor(model => model.slideOuts)<br />
+            <b>@Html.DisplayNameFor(model => model.dryWeight)</b>
+            @Html.DisplayFor(model => model.dryWeight)<br />
+            <b>@Html.DisplayNameFor(model => model.vehicleMake)</b>
+            @Html.DisplayFor(model => model.vehicleMake)<br />
+            <b>@Html.DisplayNameFor(model => model.vehicleModel)</b>
+            @Html.DisplayFor(model => model.vehicleModel)<br />
+            <b>@Html.DisplayNameFor(model => model.year)</b>
+            @Html.DisplayFor(model => model.year)<br />
+            <b>@Html.DisplayNameFor(model => model.miles)</b>
+            @Html.DisplayFor(model => model.miles)<br />
+            <b>@Html.DisplayNameFor(model => model.mpg)</b>
+            @Html.DisplayFor(model => model.mpg)<br />
+            <b>@Html.DisplayNameFor(model => model.condition)</b>
+            @Html.DisplayFor(model => model.condition)<br />
+            <b>@Html.DisplayNameFor(model => model.price)</b>
+            @Html.DisplayFor(model => model.price)<br />
+
+
+
+        </div>
+    </div>
+
 </div>
+
+
+
+
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.vehicleID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+
