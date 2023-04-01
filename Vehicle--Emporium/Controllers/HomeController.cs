@@ -31,26 +31,13 @@ namespace Vehicle__Emporium.Controllers
                                 VehicleName = B1.vehicleMake + " " + B1.vehicleModel,
                                 ImageUpload = B1.ImageUpload,
                                 year = B1.year,
-                                price= B1.price,
+                                price = B1.price,
                                 Type = "Boat"
                             }
                             ).Take(3);
 
             var addCars = (from B1 in _context.Vehicles
-                            join B2 in _context.Cars on B1.vehicleID equals B2.vehicleID
-                            select new HomeDisplay
-                            {
-                                VehicleId = B1.vehicleID,
-                                VehicleName = B1.vehicleMake + " " + B1.vehicleModel,
-                                ImageUpload = B1.ImageUpload,
-                                year = B1.year,
-                                price = B1.price,
-                                Type = "Cars"
-                            }
-                          ).Take(3);
-
-            var addBikes = (from B1 in _context.Vehicles
-                           join B2 in _context.Motorcycles on B1.vehicleID equals B2.vehicleID
+                           join B2 in _context.Cars on B1.vehicleID equals B2.vehicleID
                            select new HomeDisplay
                            {
                                VehicleId = B1.vehicleID,
@@ -58,12 +45,12 @@ namespace Vehicle__Emporium.Controllers
                                ImageUpload = B1.ImageUpload,
                                year = B1.year,
                                price = B1.price,
-                               Type = "Bikes"
+                               Type = "Cars"
                            }
                           ).Take(3);
 
-            var addMotorH = (from B1 in _context.Vehicles
-                            join B2 in _context.MotorHomes on B1.vehicleID equals B2.vehicleID
+            var addBikes = (from B1 in _context.Vehicles
+                            join B2 in _context.Motorcycles on B1.vehicleID equals B2.vehicleID
                             select new HomeDisplay
                             {
                                 VehicleId = B1.vehicleID,
@@ -71,8 +58,21 @@ namespace Vehicle__Emporium.Controllers
                                 ImageUpload = B1.ImageUpload,
                                 year = B1.year,
                                 price = B1.price,
-                                Type = "MotorHomes"
+                                Type = "Bikes"
                             }
+                          ).Take(3);
+
+            var addMotorH = (from B1 in _context.Vehicles
+                             join B2 in _context.MotorHomes on B1.vehicleID equals B2.vehicleID
+                             select new HomeDisplay
+                             {
+                                 VehicleId = B1.vehicleID,
+                                 VehicleName = B1.vehicleMake + " " + B1.vehicleModel,
+                                 ImageUpload = B1.ImageUpload,
+                                 year = B1.year,
+                                 price = B1.price,
+                                 Type = "MotorHomes"
+                             }
                          ).Take(3);
             var addTravel = (from B1 in _context.Vehicles
                              join B2 in _context.TravelTrailer on B1.vehicleID equals B2.vehicleID
@@ -88,9 +88,9 @@ namespace Vehicle__Emporium.Controllers
                         ).Take(3);
 
 
-            var combined = addBoats.Concat( addCars );
-            var combined2 = combined.Concat( addBikes );
-            var combined3 = combined2.Concat(addMotorH );
+            var combined = addBoats.Concat(addCars);
+            var combined2 = combined.Concat(addBikes);
+            var combined3 = combined2.Concat(addMotorH);
             var final = combined3.Concat(addTravel);
 
 
@@ -103,7 +103,8 @@ namespace Vehicle__Emporium.Controllers
             return View();
         }
         [Authorize(Roles = "ADMIN")]
-        public IActionResult IsAdmin() {
+        public IActionResult IsAdmin()
+        {
             return View();
         }
 
@@ -111,6 +112,31 @@ namespace Vehicle__Emporium.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public ActionResult BoatDetails(int ID)
+        {
+            return RedirectToAction("Details", "Boats", new { ID = ID });
+        }
+
+        public ActionResult CarDetails(int ID)
+        {
+            return RedirectToAction("Details", "Cars", new { ID = ID });
+        }
+
+        public ActionResult BikeDetails(int ID)
+        {
+            return RedirectToAction("Details", "Motorcycles", new { ID = ID });
+        }
+
+        public ActionResult MHDetails(int ID)
+        {
+            return RedirectToAction("Details", "MotorHomes", new { ID = ID });
+        }
+
+        public ActionResult TTDetails(int ID)
+        {
+            return RedirectToAction("Details", "TravelTrailers", new { ID = ID });
         }
     }
 }

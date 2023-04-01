@@ -72,7 +72,7 @@
     </div> 
 </div>
 
-
+<h1 class="display-4">Boats</h1>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -80,7 +80,7 @@
         {
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-70">
-                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <a asp-action="BoatDetails" asp-route-id="@item.VehicleId">
                     <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
                 </a>
                 <div class="card-body">
@@ -99,7 +99,7 @@
 
     }
 </div>
-
+<h1 class="display-4">Cars</h1>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -107,7 +107,7 @@
         {
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-70">
-                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                <a asp-action="CarDetails" asp-route-id="@item.VehicleId">
                     <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
                 </a>
                 <div class="card-body">
@@ -126,7 +126,7 @@
 
     }
 </div>
-
+<h1 class="display-4">Motorcycles</h1>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -134,7 +134,7 @@
         {
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-70">
-                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                <a asp-action="BikeDetails" asp-route-id="@item.VehicleId">
                     <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
                 </a>
                 <div class="card-body">
@@ -153,7 +153,7 @@
 
     }
 </div>
-
+<h1 class="display-4">MotorHomes</h1>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -161,7 +161,7 @@
         {
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-70">
-                    <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <a asp-action="MHDetails" asp-route-id="@item.VehicleId">
                         <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
                     </a>
                     <div class="card-body">
@@ -180,7 +180,7 @@
 
     }
 </div>
-
+<h1 class="display-4">Travel Trailers</h1>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -188,7 +188,7 @@
         {
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-70">
-                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                <a asp-action="TTDetails" asp-route-id="@item.VehicleId">
                     <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
                 </a>
                 <div class="card-body">
