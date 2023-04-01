@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Vehicle__Emporium.ViewModels.HomeDisplay>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -69,4 +70,140 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div> 
+</div>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (item.Type == "Boat")
+        {
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-70">
+                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.year)
+                        @Html.DisplayFor(modelItem => item.VehicleName)
+                    </h4>
+                    <p class="card-text">
+                        Price: @Html.DisplayFor(modelItem => item.price)<br>
+                        <a asp-action="Details" asp-route-id="@item.VehicleId">Details</a><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+
+    }
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (item.Type == "Cars")
+        {
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-70">
+                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.year)
+                        @Html.DisplayFor(modelItem => item.VehicleName)
+                    </h4>
+                    <p class="card-text">
+                        Price: @Html.DisplayFor(modelItem => item.price)<br>
+                        <a asp-action="Details" asp-route-id="@item.VehicleId">Details</a><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+
+    }
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (item.Type == "Bikes")
+        {
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-70">
+                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.year)
+                        @Html.DisplayFor(modelItem => item.VehicleName)
+                    </h4>
+                    <p class="card-text">
+                        Price: @Html.DisplayFor(modelItem => item.price)<br>
+                        <a asp-action="Details" asp-route-id="@item.VehicleId">Details</a><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+
+    }
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (item.Type == "MotorHomes")
+        {
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-70">
+                    <a asp-action="Details" asp-route-id="@item.VehicleId">
+                        <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            @Html.DisplayFor(modelItem => item.year)
+                            @Html.DisplayFor(modelItem => item.VehicleName)
+                        </h4>
+                        <p class="card-text">
+                            Price: @Html.DisplayFor(modelItem => item.price)<br>
+                            <a asp-action="Details" asp-route-id="@item.VehicleId">Details</a><br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (item.Type == "TravelTrailers")
+        {
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-70">
+                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <img class="col" src="@("~/Images/" + item.ImageUpload + ".jpeg")" asp-append-version="true" width="415" height="400" />
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.year)
+                        @Html.DisplayFor(modelItem => item.VehicleName)
+                    </h4>
+                    <p class="card-text">
+                        Price: @Html.DisplayFor(modelItem => item.price)<br>
+                        <a asp-action="Details" asp-route-id="@item.VehicleId">Details</a><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+
+    }
 </div>
