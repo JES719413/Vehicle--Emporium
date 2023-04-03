@@ -16,23 +16,29 @@
             <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400" />
         </div>
 
-        <div class="col" style="font-size: 1.2em;">
-            
-            
-            <div><b>@Html.DisplayNameFor(model => model.vehicleMake)</b></div>
-            <div>@Html.DisplayFor(model => model.vehicleMake)<br /></div>
-                <div><b>@Html.DisplayNameFor(model => model.vehicleModel)</b></div>
-                <div>@Html.DisplayFor(model => model.vehicleModel)</div>
-            <div><b>@Html.DisplayNameFor(model => model.year)</b></div>
-            <div>@Html.DisplayFor(model => model.year)<br /></div>
-            <div><b>@Html.DisplayNameFor(model => model.miles)</b></div>
-            <div> @Html.DisplayFor(model => model.miles)<br /></div>
-            <div><b>@Html.DisplayNameFor(model => model.mpg)</b></div>
-            <div>@Html.DisplayFor(model => model.mpg)<br /></div>
-            <div><b>@Html.DisplayNameFor(model => model.condition)</b></div>
-            <div>@Html.DisplayFor(model => model.condition)<br /></div>
-            <div><b>@Html.DisplayNameFor(model => model.price)</b></div>
-            <div>$@Html.DisplayFor(model => model.price)<br /></div>
+        <div class="col-md-4">
+            <b>@Html.DisplayNameFor(model => model.description)</b>
+            @Html.DisplayFor(model => model.description)<br />
+            <b>@Html.DisplayNameFor(model => model.carType)</b>
+            @Html.DisplayFor(model => model.carType)<br />
+            <b>@Html.DisplayNameFor(model => model.fuelCapcity)</b>
+            @Html.DisplayFor(model => model.fuelCapcity)<br />          
+            <b>@Html.DisplayNameFor(model => model.vehicleMake)</b>
+            @Html.DisplayFor(model => model.vehicleMake)<br />
+            <b>@Html.DisplayNameFor(model => model.vehicleModel)</b>
+            @Html.DisplayFor(model => model.vehicleModel)<br />
+            <b>@Html.DisplayNameFor(model => model.year)</b>
+            @Html.DisplayFor(model => model.year)<br />
+            <b>@Html.DisplayNameFor(model => model.miles)</b>
+            @Html.DisplayFor(model => model.miles)<br />
+            <b>@Html.DisplayNameFor(model => model.mpg)</b>
+            @Html.DisplayFor(model => model.mpg)<br />
+            <b>@Html.DisplayNameFor(model => model.condition)</b>
+            @Html.DisplayFor(model => model.condition)<br />
+            <b>@Html.DisplayNameFor(model => model.price)</b>
+            @Html.DisplayFor(model => model.price)<br />
+
+
 
         </div>
         <div class="col" style="font-size: 1.2em;">
