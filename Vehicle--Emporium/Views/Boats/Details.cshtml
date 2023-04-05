@@ -6,63 +6,71 @@
 
 
 
-<div class="container">
+<div class="">
     <h1 class="my-4">@Model.year @Model.vehicleModel  @Model.vehicleMake
         <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
     <small>$@Model.price</small>
     </h1>
-    <div class="row">
-        <div class="col-md-8">
-            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="750" height="500"/>
+    <div class="row no-gutters">
+        <div class="col-6">
+            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400"/>
         </div>
-
-        <div class="col-md-4">
-            <b>@Html.DisplayNameFor(model => model.description)</b>
-            <div >@Html.DisplayFor(model => model.description)<br/></div>
+        <div class="col">
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleMake)</b>
+            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.vehicleMake)<br /></div>
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleModel)</b>
+            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.vehicleModel)<br /></div>
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.year)</b>
+            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.year)<br /></div>
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.miles)</b>
+            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.miles)<br /></div>
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.mpg)</b>
+            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.mpg)<br /></div>
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.condition)</b>
+            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.condition)<br /></div>
+            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.price)</b>
+            <div style="font-size: 1.2em;">$@Html.DisplayFor(model => model.price)<br /></div>
+        </div>
+        <div class="col" style="font-size: 1.2em">
+            
             <b>@Html.DisplayNameFor(model => model.boatType)</b>
-            @Html.DisplayFor(model => model.boatType)<br />
+            <div>@Html.DisplayFor(model => model.boatType)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatClass)</b>
-            @Html.DisplayFor(model => model.boatClass)<br />
+            <div>@Html.DisplayFor(model => model.boatClass)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatLength)</b>
-            @Html.DisplayFor(model => model.boatLength)<br />
+            <div>@Html.DisplayFor(model => model.boatLength)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatFuel)</b>
-            @Html.DisplayFor(model => model.boatFuel)<br/>
+            <div>@Html.DisplayFor(model => model.boatFuel)<br/></div>
             <b>@Html.DisplayNameFor(model => model.boatFuelTanks)</b>
-            @Html.DisplayFor(model => model.boatFuelTanks)<br />
+            <div>@Html.DisplayFor(model => model.boatFuelTanks)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatMaterial)</b>
-            @Html.DisplayFor(model => model.boatMaterial)<br />
+            <div>@Html.DisplayFor(model => model.boatMaterial)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatShape)</b>
-            @Html.DisplayFor(model => model.boatShape)<br />
+            <div>@Html.DisplayFor(model => model.boatShape)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatCapcity)</b>
-            @Html.DisplayFor(model => model.boatCapcity)<br />
-            <b>@Html.DisplayNameFor(model => model.vehicleMake)</b>
-            @Html.DisplayFor(model => model.vehicleMake)<br />
-            <b>@Html.DisplayNameFor(model => model.vehicleModel)</b>
-            @Html.DisplayFor(model => model.vehicleModel)<br />
-            <b>@Html.DisplayNameFor(model => model.year)</b>
-            @Html.DisplayFor(model => model.year)<br />
-            <b>@Html.DisplayNameFor(model => model.miles)</b>
-            @Html.DisplayFor(model => model.miles)<br />
-            <b>@Html.DisplayNameFor(model => model.mpg)</b>
-            @Html.DisplayFor(model => model.mpg)<br />
-            <b>@Html.DisplayNameFor(model => model.condition)</b>
-            @Html.DisplayFor(model => model.condition)<br />
-            <b>@Html.DisplayNameFor(model => model.price)</b>
-            $@Html.DisplayFor(model => model.price)<br />
+            <div>@Html.DisplayFor(model => model.boatCapcity)<br /></div>
+            
 
 
 
         </div>
+       <div style="font-size: 1.2em;">
+            <b>@Html.DisplayNameFor(model => model.description)</b>
+        @Html.DisplayFor(model => model.description)<br />
+        </div>
+        <div>
+            <br /><br /><br />
+            <a asp-action="Edit" asp-route-id="@Model?.vehicleID">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+
     </div>
 
-</div>
+    </div>
 
 
 
 
 
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.vehicleID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
