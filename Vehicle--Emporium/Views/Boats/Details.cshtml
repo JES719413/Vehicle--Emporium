@@ -9,7 +9,7 @@
 <div class="container">
     <h1 class="my-4">@Model.year @Model.vehicleModel  @Model.vehicleMake
         <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
-    <small>@Model.price</small>
+    <small>$@Model.price</small>
     </h1>
     <div class="row">
         <div class="col-md-8">
@@ -18,7 +18,7 @@
 
         <div class="col-md-4">
             <b>@Html.DisplayNameFor(model => model.description)</b>
-            @Html.DisplayFor(model => model.description)<br/>
+            <div >@Html.DisplayFor(model => model.description)<br/></div>
             <b>@Html.DisplayNameFor(model => model.boatType)</b>
             @Html.DisplayFor(model => model.boatType)<br />
             <b>@Html.DisplayNameFor(model => model.boatClass)</b>
@@ -48,7 +48,7 @@
             <b>@Html.DisplayNameFor(model => model.condition)</b>
             @Html.DisplayFor(model => model.condition)<br />
             <b>@Html.DisplayNameFor(model => model.price)</b>
-            @Html.DisplayFor(model => model.price)<br />
+            $@Html.DisplayFor(model => model.price)<br />
 
 
 

@@ -9,11 +9,11 @@
     <h1 class="my-4">
         @Model.year @Model.vehicleModel  @Model.vehicleMake
         <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
-        <small>@Model.price</small>
+        <small>$@Model.price</small>
     </h1>
     <div class="row">
         <div class="col-md-8">
-            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="750" height="500" />
+            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400" />
         </div>
 
         <div class="col-md-4">
@@ -41,8 +41,22 @@
 
 
         </div>
+        <div class="col" style="font-size: 1.2em;">
+            <div><b>@Html.DisplayNameFor(model => model.carType)</b></div>
+            <div>@Html.DisplayFor(model => model.carType)<br /></div>
+            <div><b>@Html.DisplayNameFor(model => model.fuelCapcity)</b></div>
+            <div>@Html.DisplayFor(model => model.fuelCapcity)<br /></div>
+        </div>
+        <div style="font-size: 1.2em;">
+        <b>@Html.DisplayNameFor(model => model.description)</b>
+        @Html.DisplayFor(model => model.description)<br />
+        </div>    
     </div>
-
+    <div>
+        <br/> <br/> <br/>
+        <a asp-action="Edit" asp-route-id="@Model?.vehicleID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
 
 
@@ -50,8 +64,5 @@
 
 
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.vehicleID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
