@@ -76,6 +76,7 @@ namespace Vehicle__Emporium.Controllers
             }
 
             model.travelTrailer.ImageUpload = photo.FileName;
+            string currentuser = User.Identity.Name;
 
 
 
@@ -83,6 +84,7 @@ namespace Vehicle__Emporium.Controllers
             {
                 var travelTrailer = new TravelTrailer
                 {
+                    userID = currentuser,
                     rvClass = model.travelTrailer.rvClass,
                     length = model.travelTrailer.length,
                     slideOuts = model.travelTrailer.slideOuts,

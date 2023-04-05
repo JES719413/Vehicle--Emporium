@@ -94,10 +94,12 @@ namespace Vehicle__Emporium.Controllers
             }
 
             model.boats.ImageUpload = photo.FileName;
-           if (model != null)
+            string currentuser = User.Identity.Name;
+            if (model != null)
             {
                 var boat = new Boats
                 {
+                    userID = currentuser,
                     boatType = model.boats.boatType,
                     boatClass = model.boats.boatClass,
                     boatLength = model.boats.boatLength,

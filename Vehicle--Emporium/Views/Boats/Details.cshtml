@@ -7,13 +7,14 @@
 
 
 <div class="">
-    <h1 class="my-4">@Model.year @Model.vehicleModel  @Model.vehicleMake
+    <h1 class="my-4">
+        @Model.year @Model.vehicleModel  @Model.vehicleMake
         <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
-    <small>$@Model.price</small>
+        <small>$@Model.price</small>
     </h1>
     <div class="row no-gutters">
         <div class="col-6">
-            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400"/>
+            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400" />
         </div>
         <div class="col">
             <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleMake)</b>
@@ -32,7 +33,7 @@
             <div style="font-size: 1.2em;">$@Html.DisplayFor(model => model.price)<br /></div>
         </div>
         <div class="col" style="font-size: 1.2em">
-            
+
             <b>@Html.DisplayNameFor(model => model.boatType)</b>
             <div>@Html.DisplayFor(model => model.boatType)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatClass)</b>
@@ -40,7 +41,7 @@
             <b>@Html.DisplayNameFor(model => model.boatLength)</b>
             <div>@Html.DisplayFor(model => model.boatLength)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatFuel)</b>
-            <div>@Html.DisplayFor(model => model.boatFuel)<br/></div>
+            <div>@Html.DisplayFor(model => model.boatFuel)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatFuelTanks)</b>
             <div>@Html.DisplayFor(model => model.boatFuelTanks)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatMaterial)</b>
@@ -49,14 +50,16 @@
             <div>@Html.DisplayFor(model => model.boatShape)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatCapcity)</b>
             <div>@Html.DisplayFor(model => model.boatCapcity)<br /></div>
-            
+
 
 
 
         </div>
-       <div style="font-size: 1.2em;">
+        <div style="font-size: 1.2em;">
             <b>@Html.DisplayNameFor(model => model.description)</b>
-        @Html.DisplayFor(model => model.description)<br />
+            @Html.DisplayFor(model => model.description)<br />
+            <b>@Html.DisplayNameFor(model => model.userID)</b>
+            @Html.DisplayFor(model => model.userID)<br />
         </div>
         <div>
             <br /><br /><br />
@@ -67,7 +70,7 @@
 
     </div>
 
-    </div>
+</div>
 
 
 

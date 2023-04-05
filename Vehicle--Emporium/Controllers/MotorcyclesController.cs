@@ -76,11 +76,13 @@ namespace Vehicle__Emporium.Controllers
             }
 
             model.motorcycles.ImageUpload = photo.FileName;
+            string currentuser = User.Identity.Name;
 
             if (model != null)
             {
                 var motorcycle = new Motorcycles
                 {
+                    userID = currentuser,
                     bikeType = model.motorcycles.bikeType,
                     bikeEngineType = model.motorcycles.bikeEngineType,
                     rideHeight = model.motorcycles.rideHeight,

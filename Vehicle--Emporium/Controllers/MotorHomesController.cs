@@ -81,11 +81,13 @@ namespace Vehicle__Emporium.Controllers
             }
 
             model.motorHomes.ImageUpload = photo.FileName;
+            string currentuser = User.Identity.Name;
 
             if (model != null)
             {
                 var motorHome = new MotorHomes
                 {
+                    userID = currentuser,
                     slideOuts = model.motorHomes.slideOuts,
                     sleeps = model.motorHomes.sleeps,
                     fuelType = model.motorHomes.fuelType,

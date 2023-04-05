@@ -8,11 +8,12 @@ namespace Vehicle__Emporium.Models
     {
         [Key]
         public int vehicleID { get; set; }
-        [Required(ErrorMessage = "Please enter the make of the Vehicle.")]
 
-        //public string userID { get; set; }
+        [Display(Name = "Seller: ")]
+        public string userID { get; set; }
 
         [Display(Name = "Make: ")]
+        [Required(ErrorMessage = "Please enter the make of the Vehicle.")]
         public string vehicleMake { get; set; }
         [Required(ErrorMessage = "Please enter the Vehicle model")]
 

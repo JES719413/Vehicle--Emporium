@@ -31,6 +31,8 @@
             <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.condition)<br /></div>
             <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.price)</b>
             <div style="font-size: 1.2em;">$@Html.DisplayFor(model => model.price)<br /></div>
+
+
         </div>
         <div class="col" style="font-size: 1.2em;">
             <div><b>@Html.DisplayNameFor(model => model.carType)</b></div>
@@ -39,12 +41,14 @@
             <div>@Html.DisplayFor(model => model.fuelCapcity)<br /></div>
         </div>
         <div style="font-size: 1.2em;">
-        <b>@Html.DisplayNameFor(model => model.description)</b>
-        @Html.DisplayFor(model => model.description)<br />
-        </div>    
+            <b>@Html.DisplayNameFor(model => model.description)</b>
+            @Html.DisplayFor(model => model.description)<br />
+            <b>@Html.DisplayNameFor(model => model.userID)</b>
+            @Html.DisplayFor(model => model.userID)<br />
+        </div>
     </div>
     <div>
-        <br/> <br/> <br/>
+        <br /> <br /> <br />
         <a asp-action="Edit" asp-route-id="@Model?.vehicleID">Edit</a> |
         <a asp-action="Index">Back to List</a>
     </div>
