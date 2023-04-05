@@ -6,7 +6,7 @@ using Vehicle__Emporium.Data;
 using Vehicle__Emporium.Models;
 using Vehicle__Emporium.ViewModels;
 using Vehicle__Emporium.Areas.Identity;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Vehicle__Emporium.Controllers
 {
@@ -22,10 +22,12 @@ namespace Vehicle__Emporium.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //User.Identity.Name
-            return View();
+            return _context.Vehicles != null ?
+                       View(await _context.Vehicles.ToListAsync()) :
+                       Problem("Entity set 'ApplicationDbContext.Boats'  is null.");
+
         }
     }
 }
