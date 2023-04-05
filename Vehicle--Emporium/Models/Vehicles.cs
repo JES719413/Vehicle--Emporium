@@ -10,7 +10,7 @@ namespace Vehicle__Emporium.Models
         public int vehicleID { get; set; }
         [Required(ErrorMessage = "Please enter the make of the Vehicle.")]
 
-        public string userID { get; set; }
+        //public string userID { get; set; }
 
         [Display(Name = "Make: ")]
         public string vehicleMake { get; set; }

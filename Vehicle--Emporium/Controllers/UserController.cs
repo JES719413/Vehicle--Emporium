@@ -29,5 +29,34 @@ namespace Vehicle__Emporium.Controllers
                        Problem("Entity set 'ApplicationDbContext.Boats'  is null.");
 
         }
+
+        public ActionResult CreateCar()
+        {
+            return RedirectToAction("Create", "Cars");
+
+        }
+
+        public ActionResult CreateBoat()
+        {
+            return RedirectToAction("Create", "Boats");
+
+        }
+
+        public ActionResult CreateBike()
+        {
+            return RedirectToAction("Create", "Motorcycles");
+
+        }
+        public ActionResult createMH()
+        {
+            return RedirectToAction("Create", "MotorHomes");
+
+        }
+        public ActionResult CreateTT()
+        {
+            return RedirectToAction("Create", "TravelTrailers");
+
+        }
     }
+
 }
