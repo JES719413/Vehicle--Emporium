@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+@inject SignInManager<IdentityUser> SignInManager
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,11 +44,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="TravelTrailers" asp-action="Index">Travel Trailers</a>
                         </li>
-                        @if (User.IsInRole("ADMIN") || User.IsInRole("USER"))
+                        @if (SignInManager.IsSignedIn(User))
                         {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Account</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Account</a>
+                            </li>
+                        }
+                        @if(User.IsInRole("ADMIN"))
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
                         </li>

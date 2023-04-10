@@ -138,6 +138,7 @@ namespace Vehicle__Emporium.Controllers
             {
                 return NotFound();
             }
+
             return View(boats);
         }
 
