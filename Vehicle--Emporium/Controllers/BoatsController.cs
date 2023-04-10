@@ -147,7 +147,7 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("boatType,boatClass,boatLength,boatFuel,boatFuelTanks,boatMaterial,boatShape,boatCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] Boats boats)
+        public async Task<IActionResult> Edit(int id, [Bind("boatType,boatClass,boatLength,boatFuel,boatFuelTanks,boatMaterial,boatShape,boatCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID")] Boats boats)
         {
             if (id != boats.vehicleID)
             {
@@ -209,14 +209,14 @@ namespace Vehicle__Emporium.Controllers
             {
                 _context.Boats.Remove(boats);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BoatsExists(int id)
         {
-          return (_context.Boats?.Any(e => e.vehicleID == id)).GetValueOrDefault();
+            return (_context.Boats?.Any(e => e.vehicleID == id)).GetValueOrDefault();
         }
 
         public ActionResult BoatEngine(int ID)

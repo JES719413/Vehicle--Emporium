@@ -5,13 +5,17 @@
 }
 
 <h1>Edit</h1>
-@ViewBag.Test;
 <h4>Boats</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group" hidden>
+                <label asp-for="userID" class="control-label"></label>
+                <input asp-for="userID" class="form-control" value="@User.Identity.Name" />
+                <span asp-validation-for="boatType" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="boatType" class="control-label"></label>
                 <input asp-for="boatType" class="form-control" />

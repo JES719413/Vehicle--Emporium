@@ -128,7 +128,7 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("rvClass,length,slideOuts,dryWeight,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload")] TravelTrailer travelTrailer)
+        public async Task<IActionResult> Edit(int id, [Bind("rvClass,length,slideOuts,dryWeight,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID")] TravelTrailer travelTrailer)
         {
             if (id != travelTrailer.vehicleID)
             {
