@@ -15,6 +15,6 @@ namespace Vehicle__Emporium.ViewModels
 
         public string Id { get; set; }
 
-        public string HasEngine { get; set; }
+        public int HasEngine { get; set; }
     }
 }

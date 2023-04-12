@@ -62,6 +62,12 @@ namespace Vehicle__Emporium.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var vehicle = _context.Vehicles.Where(c => c.vehicleID == engine.vehicleID).FirstOrDefault();
+                if (vehicle != null)
+                {
+                    vehicle.engineAdded = 1;
+                }
                 _context.Add(engine);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -100,8 +106,7 @@ namespace Vehicle__Emporium.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
-                    _context.Update(engine);
+                {  
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

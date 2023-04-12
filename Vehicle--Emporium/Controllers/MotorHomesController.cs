@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
+using Vehicle__Emporium.Migrations;
 using Vehicle__Emporium.Models;
 using Vehicle__Emporium.ViewModels;
 
@@ -82,7 +83,7 @@ namespace Vehicle__Emporium.Controllers
 
             model.motorHomes.ImageUpload = photo.FileName;
             string currentuser = User.Identity.Name;
-
+            int defaultValue = 0;
             if (model != null)
             {
                 var motorHome = new MotorHomes
@@ -102,6 +103,7 @@ namespace Vehicle__Emporium.Controllers
                     price = model.motorHomes.price,
                     description = model.motorHomes.description,
                     ImageUpload = fileName,
+                    engineAdded = defaultValue,
                 };
                 _context.Add(motorHome);
                 await _context.SaveChangesAsync();
@@ -145,7 +147,7 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("slideOuts,sleeps,fuelType,rvClass,length,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID")] MotorHomes motorHomes)
+        public async Task<IActionResult> Edit(int id, [Bind("slideOuts,sleeps,fuelType,rvClass,length,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID,engineAdded")] MotorHomes motorHomes)
         {
             if (id != motorHomes.vehicleID)
             {

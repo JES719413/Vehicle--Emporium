@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
+using Vehicle__Emporium.Migrations;
 using Vehicle__Emporium.Models;
 using Vehicle__Emporium.ViewModels;
 
@@ -77,7 +79,7 @@ namespace Vehicle__Emporium.Controllers
 
             model.cars.ImageUpload = photo.FileName;
             string currentuser = User.Identity.Name;
-
+            int defaultValue = 0;
             if (model != null)
             {
                 var cars = new Cars
@@ -94,6 +96,7 @@ namespace Vehicle__Emporium.Controllers
                     price = model.cars.price,
                     description = model.cars.description,
                     ImageUpload = fileName,
+                    engineAdded = defaultValue,
                 };
                 _context.Add(cars);
                 await _context.SaveChangesAsync();
@@ -122,7 +125,7 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("carType,fuelCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID")] Cars cars)
+        public async Task<IActionResult> Edit(int id, [Bind("carType,fuelCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID,engineAdded")] Cars cars)
         {
             if (id != cars.vehicleID)
             {

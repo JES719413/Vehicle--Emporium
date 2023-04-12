@@ -37,6 +37,7 @@ namespace Vehicle__Emporium.Controllers
                                 price = B1.price,
                                 Type = "Boat",
                                 Id = B1.userID,
+                                HasEngine = B1.engineAdded,
                             }
                             );
 
@@ -51,6 +52,7 @@ namespace Vehicle__Emporium.Controllers
                                price = B1.price,
                                Type = "Cars",
                                Id = B1.userID,
+                               HasEngine = B1.engineAdded,
                            }
                           );
 
@@ -65,6 +67,7 @@ namespace Vehicle__Emporium.Controllers
                                 price = B1.price,
                                 Type = "Bikes",
                                 Id = B1.userID,
+                                HasEngine = B1.engineAdded,
                             }
                           );
 
@@ -79,6 +82,7 @@ namespace Vehicle__Emporium.Controllers
                                  price = B1.price,
                                  Type = "MotorHomes",
                                  Id = B1.userID,
+                                 HasEngine = B1.engineAdded,
                              }
                          );
             var addTravel = (from B1 in _context.Vehicles
@@ -92,6 +96,7 @@ namespace Vehicle__Emporium.Controllers
                                  price = B1.price,
                                  Type = "TravelTrailers",
                                  Id = B1.userID,
+                                 HasEngine = B1.engineAdded,
                              }
                         );
 
@@ -209,6 +214,16 @@ namespace Vehicle__Emporium.Controllers
         public ActionResult TTDelete(int ID)
         {
             return RedirectToAction("Delete", "TravelTrailers", new { ID = ID });
+        }
+
+        public ActionResult Engine(int ID)
+        {
+            return RedirectToAction("Create", "Engines", new { ID = ID });
+        }
+
+        public ActionResult BoatEngine(int ID)
+        {
+            return RedirectToAction("Create", "BoatEngine", new { ID = ID });
         }
     }
 

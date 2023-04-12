@@ -83,10 +83,13 @@
                 <input asp-for="description" class="form-control" />
                 <span asp-validation-for="description" class="text-danger"></span>
             </div>
-            <div class="form-group">
+             <div class="form-group" hidden>
+                <label asp-for="engineAdded" class="control-label"></label>
+                <input asp-for="engineAdded" class="form-control" value=@Model.engineAdded />
+            </div>
+            <div class="form-group" hidden>
                 <label asp-for="ImageUpload" class="control-label"></label>
-                <input asp-for="ImageUpload" class="form-control" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                <input asp-for="ImageUpload" class="form-control" value="@Model.ImageUpload" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

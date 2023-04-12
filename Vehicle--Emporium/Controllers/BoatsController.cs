@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -95,6 +96,7 @@ namespace Vehicle__Emporium.Controllers
 
             model.boats.ImageUpload = photo.FileName;
             string currentuser = User.Identity.Name;
+            int defaultValue  = 0;
             if (model != null)
             {
                 var boat = new Boats
@@ -116,7 +118,8 @@ namespace Vehicle__Emporium.Controllers
                     condition = model.boats.condition,
                     price = model.boats.price,
                     description = model.boats.description,
-                    ImageUpload = fileName
+                    ImageUpload = fileName,
+                    engineAdded = defaultValue,
                 };
                 _context.Add(boat);
                 await _context.SaveChangesAsync();
@@ -147,8 +150,13 @@ namespace Vehicle__Emporium.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("boatType,boatClass,boatLength,boatFuel,boatFuelTanks,boatMaterial,boatShape,boatCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID")] Boats boats)
+        [Authorize (Roles = "User")]
+        public async Task<IActionResult> Edit(int id, [Bind("boatType,boatClass,boatLength,boatFuel,boatFuelTanks,boatMaterial,boatShape,boatCapcity,vehicleID,vehicleMake,vehicleModel,year,miles,mpg,condition,price,description,ImageUpload,userID,engineAdded")] Boats boats)
         {
+            if(User.Identity.Name != boats.userID)
+            {
+                return NotFound();
+            }
             if (id != boats.vehicleID)
             {
                 return NotFound();
@@ -178,6 +186,7 @@ namespace Vehicle__Emporium.Controllers
         }
 
         // GET: Boats/Delete/5
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Boats == null)
@@ -198,6 +207,7 @@ namespace Vehicle__Emporium.Controllers
         // POST: Boats/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Boats == null)
@@ -207,6 +217,10 @@ namespace Vehicle__Emporium.Controllers
             var boats = await _context.Boats.FindAsync(id);
             if (boats != null)
             {
+                if (User.Identity.Name != boats.userID)
+                {
+                    return NotFound();
+                }
                 _context.Boats.Remove(boats);
             }
 
