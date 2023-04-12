@@ -79,13 +79,13 @@ namespace Vehicle__Emporium.Controllers
 
             model.cars.ImageUpload = photo.FileName;
             string currentuser = User.Identity.Name;
-            string currentuserShort = currentuser.Substring(0,currentuser.LastIndexOf("@"));
+            //string currentuserShort = currentuser.Substring(0,currentuser.LastIndexOf("@"));
             int defaultValue = 0;
             if (model != null)
             {
                 var cars = new Cars
                 {
-                    userID = currentuserShort,
+                    userID = currentuser,
                     carType = model.cars.carType,
                     fuelCapcity = model.cars.fuelCapcity,
                     vehicleMake = model.cars.vehicleMake,
