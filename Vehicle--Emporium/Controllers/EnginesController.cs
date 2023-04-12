@@ -36,7 +36,7 @@ namespace Vehicle__Emporium.Controllers
             }
 
             var engine = await _context.Engines
-                .FirstOrDefaultAsync(m => m.engineID == id);
+                .FirstOrDefaultAsync(m => m.vehicleID == id);
             if (engine == null)
             {
                 return NotFound();
