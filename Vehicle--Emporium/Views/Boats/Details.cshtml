@@ -16,7 +16,10 @@
         <div class="col-6">
             <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400" />
         </div>
+        <div class="card mb-4">
+        <div class="card-body">
         <div class="col">
+            
             <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleMake)</b>
             <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.vehicleMake)<br /></div>
             <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleModel)</b>
@@ -33,7 +36,6 @@
             <div style="font-size: 1.2em;">$@Html.DisplayFor(model => model.price)<br /></div>
         </div>
         <div class="col" style="font-size: 1.2em">
-
             <b>@Html.DisplayNameFor(model => model.boatType)</b>
             <div>@Html.DisplayFor(model => model.boatType)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatClass)</b>
@@ -50,10 +52,8 @@
             <div>@Html.DisplayFor(model => model.boatShape)<br /></div>
             <b>@Html.DisplayNameFor(model => model.boatCapcity)</b>
             <div>@Html.DisplayFor(model => model.boatCapcity)<br /></div>
-
-
-
-
+        </div>
+        </div>
         </div>
         <div style="font-size: 1.2em;">
             <b>@Html.DisplayNameFor(model => model.description)</b>
@@ -61,6 +61,7 @@
             <b>@Html.DisplayNameFor(model => model.userID)</b>
             @Html.DisplayFor(model => model.userID)<br />
         </div>
+       
         <div>
             <br /><br /><br />
             <a asp-action="Index">Back to List</a>
