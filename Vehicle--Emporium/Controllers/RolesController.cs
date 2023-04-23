@@ -15,7 +15,7 @@ namespace Vehicle__Emporium.Controllers
             roleManager = roleMgr;
             userManager = userMrg;
         }
-        [Authorize(Roles="ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         public ViewResult Index() => View(roleManager.Roles);
 
         private void Errors(IdentityResult result)

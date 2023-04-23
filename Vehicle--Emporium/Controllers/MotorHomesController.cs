@@ -223,5 +223,10 @@ namespace Vehicle__Emporium.Controllers
         {
             return RedirectToAction("Create", "Engines", new { ID = ID });
         }
+
+        public ActionResult ViewEngine(int ID)
+        {
+            return RedirectToAction("Details", "Engines", new { ID = ID });
+        }
     }
 }

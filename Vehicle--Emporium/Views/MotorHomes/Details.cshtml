@@ -44,7 +44,10 @@
                         <p><b>@Html.DisplayNameFor(model => model.mpg)</b> @Html.DisplayFor(model => model.mpg)</p>
                         <p><b>@Html.DisplayNameFor(model => model.condition)</b> @Html.DisplayFor(model => model.condition)</p>
                         <p><b>@Html.DisplayNameFor(model => model.price)</b>@Html.DisplayFor(model => model.price)</p>
-
+                        @if(@Model.engineAdded == 1)
+                        {
+                        <p><a asp-action="ViewEngine" asp-route-id="@Model.vehicleID" type="button" class="button-245">View Engine</a></p>
+                        }
                     </div>
                     <a asp-action="Index">Back to List</a>
                 </div>

@@ -221,6 +221,11 @@ namespace Vehicle__Emporium.Controllers
                 {
                     return NotFound();
                 }
+                var vehicle = _context.Vehicles.Where(c => c.vehicleID == boats.vehicleID).FirstOrDefault();
+                if (vehicle != null)
+                {
+                    vehicle.engineAdded = 0;
+                }
                 _context.Boats.Remove(boats);
             }
 
@@ -236,6 +241,12 @@ namespace Vehicle__Emporium.Controllers
         public ActionResult BoatEngine(int ID)
         {
             return RedirectToAction("Create", "BoatEngines", new { ID = ID });
+        }
+
+
+        public ActionResult ViewBEngine(int ID)
+        {
+            return RedirectToAction("Details", "BoatEngines", new { ID = ID });
         }
     }
 }

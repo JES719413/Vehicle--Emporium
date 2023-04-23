@@ -38,7 +38,7 @@
        type="button" class="btn btn-primary">Create Travel Trailer Listing</a>
     &nbsp &nbsp &nbsp
 </p>
-</p>
+
 @if (User.IsInRole("ADMIN"))
 {
     <h1 class="display-4">Boats</h1>
@@ -63,9 +63,16 @@
                         </div>
                         <a asp-action="BoatEdit" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit</a>
                         <a asp-action="BoatDetails" asp-route-id="@item.VehicleId" type="button" class="button-245">Details</a>
-                        <a asp-action="BoatEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Add Engine</a>
+                        @if (item.HasEngine == 0)
+                        {
+                            <a asp-action="BoatEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Add Engine</a>
+                        }
+                        else
+                        {
+                            <a asp-action="EditBEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
+                            <a asp-action="DeleteBEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
+                        }
                         <a asp-action="BoatDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
-
                     </div>
                 </div>
             }
@@ -92,16 +99,18 @@
                                 Price: @Html.DisplayFor(modelItem => item.price)<br>
                             </p>
                         </div>
-                        <a asp-action="Edit" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit</a>
-
-                        
-                        <a asp-action="Details" asp-route-id="@item.VehicleId" type="button" class="button-245">Details</a>
-
-                        
-                        <a asp-action="BoatEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Add Engine</a>
-
-                        
-                        <a asp-action="Delete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
+                        <a asp-action="CarEdit" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit</a>
+                        <a asp-action="CarDetails" asp-route-id="@item.VehicleId" type="button" class="button-245">Details</a>
+                        @if (item.HasEngine == 0)
+                        {
+                            <a asp-action="Engine" asp-route-id="@item.VehicleId" type="button" class="button-245">Add Engine</a>
+                        }
+                        else
+                        {
+                            <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
+                        }
+                        <a asp-action="CarDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                     </div>
                 </div>
                 
@@ -129,8 +138,8 @@
                                 Price: @Html.DisplayFor(modelItem => item.price)<br>
                             </p>
                         </div>
-                        <a asp-action="CarEdit" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit</a>
-                        <a asp-action="CarDetails" asp-route-id="@item.VehicleId" type="button" class="button-245">Details</a>
+                        <a asp-action="BikeEdit" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit</a>
+                        <a asp-action="BikeDetails" asp-route-id="@item.VehicleId" type="button" class="button-245">Details</a>
                         @if (item.HasEngine == 0)
                         {
                             <a asp-action="Engine" asp-route-id="@item.VehicleId" type="button" class="button-245">Add Engine</a>
@@ -138,9 +147,9 @@
                         else
                         {
                             <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" >Delete Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
                         }
-                        <a asp-action="CarDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
+                        <a asp-action="BikeDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                     </div>                  
                 </div>
                
@@ -178,7 +187,7 @@
                         else
                         {
                             <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId">Delete Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
                         }
                         <a asp-action="MHDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                     </div>
@@ -257,7 +266,7 @@ else
                             <a asp-action="BoatEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Add Engine</a>
                         }else{
                             <a asp-action="EditBEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteBEngine" asp-route-id="@item.VehicleId">Delete Engine</a>
+                            <a asp-action="DeleteBEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
                         }
                         <a asp-action="BoatDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                 </div>
@@ -295,7 +304,7 @@ else
                         else
                         {
                             <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId">Delete Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
                         }
                         <a asp-action="CarDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                 </div>
@@ -333,7 +342,7 @@ else
                         else
                         {
                             <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId">Delete Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
                         }
                         <a asp-action="BikeDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                 </div>
@@ -371,7 +380,7 @@ else
                         else
                         {
                             <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId">Delete Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Delete Engine</a>
                         }
                         <a asp-action="MHDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                 </div>
@@ -409,7 +418,7 @@ else
                         else
                         {
                             <a asp-action="EditEngine" asp-route-id="@item.VehicleId" type="button" class="button-245">Edit Engine</a>
-                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId">Delete Engine</a>
+                            <a asp-action="DeleteEngine" asp-route-id="@item.VehicleId"type="button" class="button-245">Delete Engine</a>
                         }
                         <a asp-action="TTDelete" asp-route-id="@item.VehicleId" type="button" class="button-24">Delete</a>
                 </div>
