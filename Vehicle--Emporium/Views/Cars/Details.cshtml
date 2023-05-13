@@ -4,59 +4,62 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+
+
+
+<link rel="stylesheet" type="text/css" href="~/css/DetailsPage.css" />
 <div class="container">
     <h1 class="my-4">
         @Model.year @Model.vehicleModel  @Model.vehicleMake
         <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
         <small>$@Model.price</small>
     </h1>
-    <div class="row">
-        <div class="col-md-8">
-            <img class="col" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="650" height="400" />
-        </div>
 
-        <div class="col">
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleMake)</b>
-            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.vehicleMake)<br /></div>
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.vehicleModel)</b>
-            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.vehicleModel)<br /></div>
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.year)</b>
-            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.year)<br /></div>
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.miles)</b>
-            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.miles)<br /></div>
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.mpg)</b>
-            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.mpg)<br /></div>
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.condition)</b>
-            <div style="font-size: 1.2em;">@Html.DisplayFor(model => model.condition)<br /></div>
-            <b style="font-size: 1.2em">@Html.DisplayNameFor(model => model.price)</b>
-            <div style="font-size: 1.2em;">$@Html.DisplayFor(model => model.price)<br /></div>
-
-
-        </div>
-        <div class="col" style="font-size: 1.2em;">
-            <div><b>@Html.DisplayNameFor(model => model.carType)</b></div>
-            <div>@Html.DisplayFor(model => model.carType)<br /></div>
-            <div><b>@Html.DisplayNameFor(model => model.fuelCapcity)</b></div>
-            <div>@Html.DisplayFor(model => model.fuelCapcity)<br /></div>
-        </div>
-        <div style="font-size: 1.2em;">
-            <b>@Html.DisplayNameFor(model => model.description)</b>
-            @Html.DisplayFor(model => model.description)<br />
-            <b>@Html.DisplayNameFor(model => model.userID)</b>
-            @Html.DisplayFor(model => model.userID)<br />
-        </div>
-    </div>
     <div>
-        <br /> <br /> <br />
-        <a asp-action="Index">Back to List</a>
-    </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <img style="padding-bottom: 20px;" src="@("~/Images/" + @Model.ImageUpload + ".jpeg")" asp-append-version="true" width="600" height="400" />
+                </div>
+                <div class="col-6">
+                    <div class="project-info-box">
+                        <p><b>@Html.DisplayNameFor(model => model.userID)</b> @Html.DisplayFor(model => model.userID)</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="project-info-box mt-0">
+                <h5><b>@Html.DisplayNameFor(model => model.description)</b></h5>
+                <p class="mb-0">@Html.DisplayFor(model => model.description)</p>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+
+
+                    <div class="project-info-box">
+                        <p><b>@Html.DisplayNameFor(model => model.vehicleMake)</b> @Html.DisplayFor(model => model.vehicleMake)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.vehicleModel)</b> @Html.DisplayFor(model => model.vehicleModel)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.year)</b> @Html.DisplayFor(model => model.year)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.miles)</b> @Html.DisplayFor(model => model.miles)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.mpg)</b> @Html.DisplayFor(model => model.mpg)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.condition)</b> @Html.DisplayFor(model => model.condition)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.price)</b>@Html.DisplayFor(model => model.price)</p>
+                        @if(@Model.engineAdded == 1)
+                        {
+                        <p><a asp-action="ViewEngine" asp-route-id="@Model.vehicleID" type="button" class="button-245">View Engine</a></p>
+                        }
+                    </div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
+                <div class="col">
+                    <div class="project-info-box">
+                        <p><b>@Html.DisplayNameFor(model => model.carType)</b> @Html.DisplayFor(model => model.carType)</p>
+                        <p><b>@Html.DisplayNameFor(model => model.fuelCapcity)</b> @Html.DisplayFor(model => model.fuelCapcity)</p>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 </div>
-
-
-
-
-
-
-
-

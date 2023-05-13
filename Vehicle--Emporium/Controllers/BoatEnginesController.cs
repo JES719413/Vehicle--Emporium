@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vehicle__Emporium.Data;
 using Vehicle__Emporium.Models;
+using Vehicle__Emporium.ViewModels;
 
 namespace Vehicle__Emporium.Controllers
 {
@@ -35,14 +36,27 @@ namespace Vehicle__Emporium.Controllers
                 return NotFound();
             }
 
-            var boatEngine = await _context.BoatEngines
-                .FirstOrDefaultAsync(m => m.engineID == id);
-            if (boatEngine == null)
-            {
-                return NotFound();
-            }
-
-            return View(boatEngine);
+            List<BoatEngineView> boatEngineViews = new List<BoatEngineView>();
+            var boatEngineList = (from T1 in _context.BoatEngines
+                                  join T2 in _context.Vehicles on T1.vehicleID equals T2.vehicleID
+                                  where T1.vehicleID == id
+                                  select new BoatEngineView
+                                  {
+                                      engineID = T1.engineID,
+                                      vehicleID = T2.vehicleID,
+                                      vehicleMake = T2.vehicleMake,
+                                      vehicleModel = T2.vehicleModel,
+                                      engineModel = T1.engineModel,
+                                      engineMake = T1.engineMake,
+                                      enginePower = T1.enginePower,
+                                      engineDriveType = T1.engineDriveType,
+                                      propellerType = T1.propellerType,
+                                      propellerMaterial = T1.propellerMaterial,
+                                      engineHour = T1.engineHour,
+                                      engineType = T1.engineType,
+                                  });
+            boatEngineViews = boatEngineList.ToList();
+            return View(boatEngineViews);
         }
 
         //// GET: BoatEngines/Create
@@ -68,9 +82,14 @@ namespace Vehicle__Emporium.Controllers
         {
             if (ModelState.IsValid)
             {
+                var vehicle = _context.Vehicles.Where(c => c.vehicleID == boatEngine.vehicleID).FirstOrDefault();
+                if (vehicle != null)
+                {
+                    vehicle.engineAdded = 1;
+                }
                 _context.Add(boatEngine);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "User");
             }
             return View(boatEngine);
         }
@@ -83,7 +102,7 @@ namespace Vehicle__Emporium.Controllers
                 return NotFound();
             }
 
-            var boatEngine = await _context.BoatEngines.FindAsync(id);
+            var boatEngine = await _context.BoatEngines.FirstOrDefaultAsync(m => m.vehicleID == id);
             if (boatEngine == null)
             {
                 return NotFound();
@@ -98,7 +117,7 @@ namespace Vehicle__Emporium.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("engineDriveType,propellerType,propellerMaterial,engineID,vehicleID,engineMake,engineModel,enginePower,engineType,engineHour")] BoatEngine boatEngine)
         {
-            if (id != boatEngine.engineID)
+            if (id != boatEngine.vehicleID)
             {
                 return NotFound();
             }
@@ -112,7 +131,7 @@ namespace Vehicle__Emporium.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BoatEngineExists(boatEngine.engineID))
+                    if (!BoatEngineExists(boatEngine.vehicleID))
                     {
                         return NotFound();
                     }
@@ -121,7 +140,7 @@ namespace Vehicle__Emporium.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "User");
             }
             return View(boatEngine);
         }
@@ -135,7 +154,7 @@ namespace Vehicle__Emporium.Controllers
             }
 
             var boatEngine = await _context.BoatEngines
-                .FirstOrDefaultAsync(m => m.engineID == id);
+                .FirstOrDefaultAsync(m => m.vehicleID == id);
             if (boatEngine == null)
             {
                 return NotFound();
@@ -153,14 +172,19 @@ namespace Vehicle__Emporium.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.BoatEngines'  is null.");
             }
-            var boatEngine = await _context.BoatEngines.FindAsync(id);
+            var boatEngine = await _context.BoatEngines.FirstOrDefaultAsync(m => m.vehicleID == id);
             if (boatEngine != null)
             {
+                var vehicle = _context.Vehicles.Where(c => c.vehicleID == boatEngine.vehicleID).FirstOrDefault();
+                if (vehicle != null)
+                {
+                    vehicle.engineAdded = 0;
+                }
                 _context.BoatEngines.Remove(boatEngine);
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "User");
         }
 
         private bool BoatEngineExists(int id)

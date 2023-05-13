@@ -7,7 +7,9 @@ namespace Vehicle__Emporium.Models
 {
     public class Engine
     {
+        [Display(Name = "Engine ID: ")]
         public int engineID { get; set; }
+        [Display(Name = "Vehicle ID: ")]
         public int vehicleID { get; set; }
 
         [Display(Name = "Engine Make")]

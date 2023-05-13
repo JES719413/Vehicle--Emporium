@@ -1,16 +1,19 @@
 ﻿@model IEnumerable<Vehicle__Emporium.Models.TravelTrailer>
+@inject SignInManager<IdentityUser> SignInManager;
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Travel Trailers";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Travel Trailers</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>
+        <a asp-action="Create">Add Travel Trailer Listing</a>
+    </p>
+}
 <div class="row">
     @foreach (var item in Model)
     {

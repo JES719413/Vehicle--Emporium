@@ -1,4 +1,4 @@
-﻿@model Vehicle__Emporium.Models.Engine
+﻿@model List<Vehicle__Emporium.ViewModels.EngineView>
 
 @{
     ViewData["Title"] = "Details";
@@ -9,46 +9,54 @@
 <div>
     <h4>Engine</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vehicleID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vehicleID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.engineMake)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.engineMake)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.engineModel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.engineModel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.enginePower)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.enginePower)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.engineType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.engineType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.engineHour)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.engineHour)
-        </dd>
-    </dl>
+    @if (Model != null)
+    {
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model[0].vehicleMake)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model[0].vehicleMake)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model[0].vehicleModel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model[0].vehicleModel)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model[0].engineMake)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model[0].engineMake)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model[0].engineModel)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model[0].engineModel)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model[0].enginePower)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model[0].enginePower)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model[0].engineType)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model[0].engineType)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model[0].engineHour)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model[0].engineHour)
+            </dd>
+        </dl>
+    }
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.engineID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
 </div>

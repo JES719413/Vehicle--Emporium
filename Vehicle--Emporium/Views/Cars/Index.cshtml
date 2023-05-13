@@ -1,14 +1,19 @@
 ﻿@model IEnumerable<Vehicle__Emporium.Models.Cars>
 
+@inject SignInManager<IdentityUser> SignInManager;
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cars";
 }
 
-<h1>Index</h1>
+<h1>Cars</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>
+        <a asp-action="Create">Add Car Listing</a>
+    </p>
+}
 
 <div class="row">
     @foreach (var item in Model)

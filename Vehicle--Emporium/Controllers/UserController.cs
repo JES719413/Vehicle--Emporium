@@ -223,7 +223,27 @@ namespace Vehicle__Emporium.Controllers
 
         public ActionResult BoatEngine(int ID)
         {
-            return RedirectToAction("Create", "BoatEngine", new { ID = ID });
+            return RedirectToAction("Create", "BoatEngines", new { ID = ID });
+        }
+
+        public ActionResult EditEngine(int ID)
+        {
+            return RedirectToAction("Edit", "Engines", new { ID = ID });
+        }
+
+        public ActionResult DeleteEngine(int ID)
+        {
+            return RedirectToAction("Delete", "Engines", new { ID = ID });
+        }
+
+        public ActionResult EditBEngine(int ID)
+        {
+            return RedirectToAction("Edit", "BoatEngines", new { ID = ID });
+        }
+
+        public ActionResult DeleteBEngine(int ID)
+        {
+            return RedirectToAction("Delete", "BoatEngines", new { ID = ID });
         }
     }
 

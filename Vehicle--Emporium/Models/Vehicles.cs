@@ -7,6 +7,7 @@ namespace Vehicle__Emporium.Models
     public class Vehicles
     {
         [Key]
+        [Display(Name = "Vehicle ID: ")]
         public int vehicleID { get; set; }
 
         [Display(Name = "Seller: ")]
@@ -51,10 +52,6 @@ namespace Vehicle__Emporium.Models
 
         public int engineAdded { get; set; }
 
-        //public string userName { get; set; }
-
-        //[NotMapped]
-        //[DisplayName("Image")]
-        //public IFormFile Image { get; set; }
+       
     }
 }
